@@ -1,12 +1,15 @@
 @import '../../theme.scss';
 
 .button {
-  width: 100%;
+  width: 288px;
   height: 56px;
   border-radius: 8px;
   color: white;
+  position: fixed;
+  bottom: 80px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
   background: $gray_300;
-  margin-top: 110px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }

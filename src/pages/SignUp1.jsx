@@ -9,16 +9,55 @@ import './SignUp1.scss';
 const SignUp1 = () => {
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
-  console.log(value);
+
+  const renderContent = () => {
+    switch (value) {
+      case 1:
+        return (
+          <div>
+            <Progress value={value}></Progress>
+            <Step>기본 정보를 입력해주세요</Step>
+            <div className="infobox">
+              <Input value="홍길동">이름</Input>
+              <DropBox></DropBox>
+              <Input value="URL을 입력하세요">포트폴리오</Input>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div>
+            <Progress value={value}></Progress>
+            <Step>보유하신 스킬을 선택해주세요</Step>
+            <div className="infobox"></div>
+          </div>
+        );
+      case 3:
+        return (
+          <div>
+            <Progress value={value}></Progress>
+            <Step>경력을 입력해주세요</Step>
+            <div className="infobox">
+              <DropBox></DropBox>
+            </div>
+          </div>
+        );
+      case 4:
+        return (
+          <div>
+            <div>프로필 작성이 완료되었어요!</div>
+            <div>이제 원하는 프로젝트를 찾아보세요</div>
+            <p>프로젝트는 최대 3개까지 지원할 수 있습니다</p>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="sign-up-container">
-      <Progress value={value}></Progress>
-      <Step></Step>
-      <div className="infombox">
-        <Input value="홍길동">이름</Input>
-        <DropBox></DropBox>
-        <Input value="URL을 입력하세요">포트폴리오</Input>
-      </div>
+      {renderContent()}
       <Button
         className={`button ${isClick ? 'clicked' : ''}`}
         onClick={() => {
@@ -26,7 +65,7 @@ const SignUp1 = () => {
           setIsClick(true);
         }}
       >
-        다음
+        {value === 4 ? '완료' : '다음'}
       </Button>
     </div>
   );
