@@ -16,7 +16,7 @@ const SignUp1 = () => {
         return (
           <div>
             <Progress value={value}></Progress>
-            <Step>기본 정보를 입력해주세요</Step>
+            <Step value={value}> 기본 정보를 입력해주세요</Step>
             <div className="infobox">
               <Input value="홍길동">이름</Input>
               <DropBox></DropBox>
@@ -28,7 +28,7 @@ const SignUp1 = () => {
         return (
           <div>
             <Progress value={value}></Progress>
-            <Step>보유하신 스킬을 선택해주세요</Step>
+            <Step value={value}>보유하신 스킬을 선택해주세요</Step>
             <div className="infobox"></div>
           </div>
         );
@@ -36,7 +36,7 @@ const SignUp1 = () => {
         return (
           <div>
             <Progress value={value}></Progress>
-            <Step>경력을 입력해주세요</Step>
+            <Step value={value}>경력을 입력해주세요</Step>
             <div className="infobox">
               <DropBox></DropBox>
             </div>
@@ -44,9 +44,12 @@ const SignUp1 = () => {
         );
       case 4:
         return (
-          <div>
+          <div className="text-container">
             <div>프로필 작성이 완료되었어요!</div>
-            <div>이제 원하는 프로젝트를 찾아보세요</div>
+            <div>
+              이제 원하는 프로젝트를 <br />
+              찾아보세요
+            </div>
             <p>프로젝트는 최대 3개까지 지원할 수 있습니다</p>
           </div>
         );
@@ -65,7 +68,7 @@ const SignUp1 = () => {
           setIsClick(true);
         }}
       >
-        {value === 4 ? '완료' : '다음'}
+        {value === 4 ? '홈으로' : '다음'}
       </Button>
     </div>
   );

@@ -1,3 +1,5 @@
+@import './../theme.scss';
+
 .sign-up-container {
   padding: 0 16px;
   width: 320px;
@@ -8,4 +10,18 @@
   gap: 8px;
   display: flex;
   flex-direction: column;
+}
+
+.text-container {
+  padding-top: 240px;
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-size: 24px;
+}
+
+.text-container > p {
+  font-size: 16px;
+  margin-top: 16px;
+  color: $gray_900;
+  font-weight: 300;
 }
