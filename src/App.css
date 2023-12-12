@@ -54,7 +54,7 @@ select {
 
 /* 이미지 드래그 방지 */
 img {
-  user-drag: none;
+  /* user-drag: none; */
   user-select: none;
 }
 
