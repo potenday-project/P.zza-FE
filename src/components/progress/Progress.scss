@@ -1,0 +1,28 @@
+@import './../../theme.scss';
+
+.container {
+  justify-content: center;
+  gap: 32px;
+  display: flex;
+  margin: auto;
+  padding-top: 58px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  background: $gray_100;
+  color: $gray_400;
+  border-radius: 999px;
+}
+
+.circle.colored {
+  background: #ff570e;
+  color: white;
+}
