@@ -5,10 +5,12 @@ import { Input } from '../components/input/Input';
 import { DropBox } from '../components/dropbox/DropBox';
 import { Button } from '../components/button/Button';
 import './SignUp1.scss';
+import Modal from '../components/modal/Modal';
 
 const SignUp1 = () => {
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
+  const [modalstate, setModalState] = useState(false);
 
   const renderContent = () => {
     switch (value) {
@@ -18,8 +20,11 @@ const SignUp1 = () => {
             <Progress value={value}></Progress>
             <Step value={value}> 기본 정보를 입력해주세요</Step>
             <div className="infobox">
+              {modalstate && (
+                <Modal className="modal" modalstate={modalstate}></Modal>
+              )}
               <Input value="홍길동">이름</Input>
-              <DropBox></DropBox>
+              <DropBox onClick={() => setModalState(!modalstate)}>직무</DropBox>
               <Input value="URL을 입력하세요">포트폴리오</Input>
             </div>
           </div>
@@ -60,16 +65,18 @@ const SignUp1 = () => {
 
   return (
     <div className="sign-up-container">
-      {renderContent()}
-      <Button
-        className={`button ${isClick ? 'clicked' : ''}`}
-        onClick={() => {
-          setValue(value + 1);
-          setIsClick(true);
-        }}
-      >
-        {value === 4 ? '홈으로' : '다음'}
-      </Button>
+      <div>
+        {renderContent()}
+        <Button
+          className={`button ${isClick ? 'clicked' : ''}`}
+          onClick={() => {
+            setValue(value + 1);
+            setIsClick(true);
+          }}
+        >
+          {value === 4 ? '홈으로' : '다음'}
+        </Button>
+      </div>
     </div>
   );
 };
