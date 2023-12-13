@@ -1,0 +1,39 @@
+@import './../../theme.scss';
+
+.skill-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  width: fit-content;
+  height: 34px;
+
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  border-radius: 8px;
+  /* Gray/Gray_500 */
+  background: #eeeeee;
+  color: #9e9e9e;
+}
+
+.clicked {
+  background: $primary;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.skill-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 86px;
+}

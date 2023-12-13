@@ -1,70 +1,50 @@
 import React, { useState } from 'react';
 import { Progress } from '../components/progress/Progress';
-import { Step } from '../components/step/Step';
-import { Input } from '../components/input/Input';
-import { DropBox } from '../components/dropbox/DropBox';
+
 import { Button } from '../components/button/Button';
 import './SignUp1.scss';
-import Modal from '../components/modal/Modal';
+
+import BasicInfoPage from './step1/Step1';
+import SkillSelectionPage from './step2/Step2';
+import ExperienceInputPage from './step3/Step3';
+import CompletionPage from './step4/Step4';
+import { Step } from '../components/step/Step';
 
 const SignUp1 = () => {
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
   const [modalstate, setModalState] = useState(false);
 
+  const handleProgressClick = (newValue) => {
+    setValue(newValue);
+    // 다른 작업을 수행하고 싶다면 여기에 추가
+  };
+
   const renderContent = () => {
     switch (value) {
       case 1:
         return (
-          <div>
-            <Progress value={value}></Progress>
-            <Step value={value}> 기본 정보를 입력해주세요</Step>
-            <div className="infobox">
-              {modalstate && (
-                <Modal className="modal" modalstate={modalstate}></Modal>
-              )}
-              <Input value="홍길동">이름</Input>
-              <DropBox onClick={() => setModalState(!modalstate)}>직무</DropBox>
-              <Input value="URL을 입력하세요">포트폴리오</Input>
-            </div>
-          </div>
+          <BasicInfoPage
+            value={value}
+            modalstate={modalstate}
+            setModalState={setModalState}
+          />
         );
       case 2:
-        return (
-          <div>
-            <Progress value={value}></Progress>
-            <Step value={value}>보유하신 스킬을 선택해주세요</Step>
-            <div className="infobox"></div>
-          </div>
-        );
+        return <SkillSelectionPage value={value} />;
       case 3:
-        return (
-          <div>
-            <Progress value={value}></Progress>
-            <Step value={value}>경력을 입력해주세요</Step>
-            <div className="infobox">
-              <DropBox></DropBox>
-            </div>
-          </div>
-        );
+        return <ExperienceInputPage value={value} />;
       case 4:
-        return (
-          <div className="text-container">
-            <div>프로필 작성이 완료되었어요!</div>
-            <div>
-              이제 원하는 프로젝트를 <br />
-              찾아보세요
-            </div>
-            <p>프로젝트는 최대 3개까지 지원할 수 있습니다</p>
-          </div>
-        );
+        return <CompletionPage />;
       default:
         return null;
     }
   };
-
   return (
     <div className="sign-up-container">
+      {value < 4 && (
+        <Progress value={value} onClick={handleProgressClick}></Progress>
+      )}
       <div>
         {renderContent()}
         <Button

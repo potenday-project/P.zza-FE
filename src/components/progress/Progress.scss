@@ -1,11 +1,12 @@
 @import './../../theme.scss';
 
 .container {
-  justify-content: center;
   gap: 32px;
   display: flex;
+  align-items: flex-start;
   margin: auto;
   padding-top: 58px;
+  width: 100%;
 }
 
 .circle {
