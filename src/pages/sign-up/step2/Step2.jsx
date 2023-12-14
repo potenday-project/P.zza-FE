@@ -1,7 +1,7 @@
 // SkillSelectionPage.jsx
 import React, { useState } from 'react';
-import { Step } from '../../components/step/Step';
-import { SkillChip } from '../../components/skill-chip/SkillChip';
+import { Step } from '../../../components/step/Step';
+import { SkillChip } from '../../../components/skill-chip/SkillChip';
 
 function SkillSelectionPage({ value }) {
   const [skills, setSkills] = useState();

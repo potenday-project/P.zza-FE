@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Progress } from '../components/progress/Progress';
+import { Progress } from '../../components/progress/Progress';
 
-import { Button } from '../components/button/Button';
-import './SignUp1.scss';
+import { Button } from '../../components/button/Button';
+import './SignUp.scss';
 
 import BasicInfoPage from './step1/Step1';
 import SkillSelectionPage from './step2/Step2';
@@ -10,7 +10,7 @@ import ExperienceInputPage from './step3/Step3';
 import CompletionPage from './step4/Step4';
 import { useNavigate } from 'react-router-dom';
 
-const SignUp1 = () => {
+const SignUp = () => {
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
 
@@ -58,4 +58,4 @@ const SignUp1 = () => {
   );
 };
 
-export default SignUp1;
+export default SignUp;

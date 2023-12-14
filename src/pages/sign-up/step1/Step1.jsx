@@ -1,9 +1,9 @@
 // BasicInfoPage.jsx
 import React, { useState } from 'react';
-import { Step } from '../../components/step/Step';
-import { Input } from '../../components/input/Input';
-import { DropBox } from '../../components/dropbox/DropBox';
-import Modal from '../../components/modal/Modal';
+import { Step } from '../../../components/step/Step';
+import { Input } from '../../../components/input/Input';
+import { DropBox } from '../../../components/dropbox/DropBox';
+import Modal from '../../../components/modal/Modal';
 
 const INITIAL = {
   role: '선택',
