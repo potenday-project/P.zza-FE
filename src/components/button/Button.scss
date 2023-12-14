@@ -13,6 +13,25 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+.half-button {
+  width: 156px;
+  height: 56px;
+  border-radius: 8px;
+  color: white;
+
+  background: $gray_300;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-container {
+  position: fixed;
+  top: 686px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 20px;
+  display: flex;
+}
 
 .button.clicked {
   background-color: $primary;
