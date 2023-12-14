@@ -64,4 +64,13 @@ article {
       }
     }
   }
+  & .desc_title {
+    @include Button2;
+    margin-bottom: 4px;
+    color: $gray_800;
+  }
+  & .desc_text {
+    @include Body2;
+    color: $gray_800;
+  }
 }
