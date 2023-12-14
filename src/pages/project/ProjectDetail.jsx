@@ -31,11 +31,11 @@ const ProjectDetail = () => {
           </ul>
           <div className="wrap_box">
             <h2>
-              <img src={idea} />
+              <img src={idea} alt="단계별 가이드 아이콘" />
               단계별 가이드
             </h2>
             <div className="info_box">
-              <p className="desc_title">{PROJECT_STEPS[0].name}</p>
+              <p className="desc_title">STEP 1. {PROJECT_STEPS[0].name}</p>
               <p className="desc_text">{PROJECT_STEPS[0].desc}</p>
             </div>
           </div>
@@ -44,7 +44,7 @@ const ProjectDetail = () => {
       <article>
         <div className="wrap_box">
           <h2>
-            <img src={folder} />
+            <img src={folder} alt="산출물 업로드 아이콘" />
             산출물 업로드
           </h2>
           <input type="file" />
@@ -54,7 +54,7 @@ const ProjectDetail = () => {
       <article>
         <div className="wrap_box">
           <h2>
-            <img src={email} />
+            <img src={email} alt="참여 요청별 현황 아이콘" />
             참여 요청 현황
           </h2>
           <ul>
