@@ -8,12 +8,13 @@ import BasicInfoPage from './step1/Step1';
 import SkillSelectionPage from './step2/Step2';
 import ExperienceInputPage from './step3/Step3';
 import CompletionPage from './step4/Step4';
-import { Step } from '../components/step/Step';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp1 = () => {
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
-  const [modalstate, setModalState] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleProgressClick = (newValue) => {
     setValue(newValue);
@@ -23,19 +24,15 @@ const SignUp1 = () => {
   const renderContent = () => {
     switch (value) {
       case 1:
-        return (
-          <BasicInfoPage
-            value={value}
-            modalstate={modalstate}
-            setModalState={setModalState}
-          />
-        );
+        return <BasicInfoPage value={value} />;
       case 2:
         return <SkillSelectionPage value={value} />;
       case 3:
         return <ExperienceInputPage value={value} />;
       case 4:
         return <CompletionPage />;
+      case 5:
+        navigate('../mainpage');
       default:
         return null;
     }

@@ -26,13 +26,3 @@
   color: $gray_900;
   font-weight: 300;
 }
-
-.modal {
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  z-index: 2; /* Place the modal above the black background */
-}

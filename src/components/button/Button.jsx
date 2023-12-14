@@ -3,7 +3,6 @@ import './Button.scss';
 import { useState } from 'react';
 
 export function Button({ children, onClick, className, value }) {
-  const navigate = useNavigate();
   return (
     <button className={className} onClick={onClick}>
       {children}

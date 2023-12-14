@@ -12,6 +12,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/sign-up-1" element={<SignUp1 />} />
+          <Route path="/mainpage" element={<div>mainpage</div>} />
         </Routes>
       </Layout>
     </BrowserRouter>

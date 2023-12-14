@@ -1,3 +1,5 @@
+@import './../../theme.scss';
+
 .step-container {
   margin-top: 56px;
   margin-bottom: 32px;
@@ -8,8 +10,8 @@
   height: 26px;
   padding: 6px 10px;
   border-radius: 999px;
-  color: #ff570e;
-  background: #ffc6a6;
+  color: $primary;
+  background: $orange_50;
   font-size: 12px;
   font-family: 'Pretendard Variable';
   font-style: 'ExtraBold';

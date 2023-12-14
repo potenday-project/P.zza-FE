@@ -1,12 +1,20 @@
 import './DropBox.scss';
 import arrow from '../../assets/icons/down-arrow.svg';
+import { useSearchParams } from 'react-router-dom';
+import { useState } from 'react';
 
-export function DropBox({ onClick }) {
+export function DropBox({ children, onClick, value }) {
+  const [role, setRole] = useState(value);
   return (
     <div className="drop-container">
-      <div className="label">직무</div>
+      <div className="label">{children}</div>
       <button className="dropbox" onClick={onClick}>
-        <input placeholder="선택" className="input"></input>
+        <input
+          value={role}
+          readOnly={true}
+          className="input"
+          onChange={(e) => setRole(e.target.value)}
+        ></input>
         <img src={arrow}></img>
       </button>
     </div>
