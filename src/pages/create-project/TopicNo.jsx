@@ -3,12 +3,14 @@ import { TopNav } from '../../components/TopNav/TopNav';
 import { Button } from '../../components/button/Button';
 import { Input } from '../../components/input/Input';
 import './TopicNo.scss';
+import { useNavigate } from 'react-router-dom';
 
 const INITIAL = Array.from({ length: 5 }, () => ({ recommendation: '' }));
 
 export function TopicNo() {
   const [values, setValues] = useState(INITIAL);
   const [isClick, setIsClick] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (index, value) => {
     const newValues = [...values];
@@ -38,7 +40,10 @@ export function TopicNo() {
         </div>
         <Button
           className={`button ${isClick ? 'clicked' : ''}`}
-          onClick={() => {}}
+          onClick={() => {
+            navigate('./topic-list');
+            setIsClick(true);
+          }}
         >
           확인
         </Button>
