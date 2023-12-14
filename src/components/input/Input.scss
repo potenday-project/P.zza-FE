@@ -1,0 +1,36 @@
+@import './../../theme.scss';
+
+.label {
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 26px;
+}
+
+.inputbox {
+  width: 100%;
+  height: 56px;
+  border-radius: 8px;
+  border: 1px solid $gray_300;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.input {
+  width: 256px;
+  height: 22px;
+  font-family: 'Pretendard Variable';
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  border: none;
+  color: $gray_400;
+  font-weight: 300;
+
+  &:focus {
+    outline: none;
+    color: $gray-900;
+  }
+}
