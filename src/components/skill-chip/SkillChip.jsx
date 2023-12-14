@@ -23,8 +23,12 @@ const skillship = [
   'Spring',
   'Spring Boot',
 ];
-export function SkillChip() {
+
+export function SkillChip({ setSkills }) {
   const [clicked, setClicked] = useState(Array(skillship.length).fill(false));
+  const [skills, setLocalSkills] = useState([]);
+
+  console.log(skills);
 
   return (
     <div className="skill-container">
@@ -36,6 +40,15 @@ export function SkillChip() {
             const newChips = [...clicked];
             newChips[i] = !newChips[i];
             setClicked(newChips);
+
+            if (newChips[i]) {
+              setLocalSkills((prevSkills) => [...prevSkills, item]);
+            } else {
+              setLocalSkills((prevSkills) =>
+                prevSkills.filter((skill) => skill !== item)
+              );
+            }
+            setSkills(skills);
           }}
         >
           {item}

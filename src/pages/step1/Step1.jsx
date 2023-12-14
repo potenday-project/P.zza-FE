@@ -7,34 +7,43 @@ import Modal from '../../components/modal/Modal';
 
 const INITIAL = {
   role: '선택',
-  portfolio_url: 'url을 입력하세요',
-};
-
-const handleChange = (name, value) => {
-  setValues((prev) => ({ ...prev, [name]: value }));
+  portfolio_url: '',
 };
 
 function BasicInfoPage({ value }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [values, setValues] = useState(INITIAL);
+  const handleChange = (name, value) => {
+    setValues((prev) => ({ ...prev, [name]: value }));
+    // console.log(values);
+  };
   return (
     <div>
       <Step value={value}> 기본 정보를 입력해주세요</Step>
       <div className="infobox">
         {modalOpen && (
-          <Modal step="1" value={values.role} modalstate={modalOpen}></Modal>
+          <Modal
+            step="1"
+            value={values.role}
+            modalstate={modalOpen}
+            onJdChange={handleChange}
+          ></Modal>
         )}
-        <Input value={values.name} onChange={handleChange}>
-          이름
-        </Input>
+
         <DropBox
+          name="role"
           value={values.role}
           onChange={handleChange}
-          onClick={() => setModalOpen(true)}
+          onClick={() => setModalOpen(!modalOpen)}
         >
           직무
         </DropBox>
-        <Input value={values.portfolio_url} onChange={handleChange}>
+        <Input
+          name="portfolio_url"
+          value={values.portfolio_url}
+          placeholder="url을 입력하세요"
+          onChange={handleChange}
+        >
           포트폴리오
         </Input>
       </div>

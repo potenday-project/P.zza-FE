@@ -1,16 +1,15 @@
 import './DropBox.scss';
 import arrow from '../../assets/icons/down-arrow.svg';
-import { useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 
-export function DropBox({ children, onClick, value }) {
+export function DropBox({ children, onClick, onChange, value }) {
   const [role, setRole] = useState(value);
   return (
     <div className="drop-container">
       <div className="label">{children}</div>
       <button className="dropbox" onClick={onClick}>
         <input
-          value={role}
+          value={value}
           readOnly={true}
           className="input"
           onChange={(e) => setRole(e.target.value)}
