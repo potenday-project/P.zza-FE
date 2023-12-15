@@ -5,7 +5,7 @@ import { Input } from '../../components/input/Input';
 import { Button } from '../../components/button/Button';
 import './CreateTitle.scss';
 
-export function ExplainProject({ value }) {
+export function ExplainProject({ step }) {
   const [title, setTitle] = useState({ title: '' });
   const [isClick, setIsClick] = useState(false);
   const handleTitleChange = (name, value) => {
@@ -13,7 +13,7 @@ export function ExplainProject({ value }) {
   };
   return (
     <div>
-      <Step value={value}>프로젝트 소개글을 작성해주세요</Step>
+      <Step value={step}>프로젝트 소개글을 작성해주세요</Step>
 
       <Input
         name="title"

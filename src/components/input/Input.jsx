@@ -5,7 +5,7 @@ export function Input({ children, value, name, placeholder, onChange }) {
   const [input, setInput] = useState(value);
   const handleInputChange = (e) => {
     setInput(e.target.value);
-    onChange(name, e.target.value);
+    onChange(e.target.name, e.target.value);
   };
 
   return (

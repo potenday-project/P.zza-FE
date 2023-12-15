@@ -1,7 +1,5 @@
 import { TopNav } from '../../components/TopNav/TopNav';
-import optioncharac from '../../assets/icons/optioncharac.svg';
 import { useState } from 'react';
-import { Step } from '../../components/step/Step';
 import { Button } from '../../components/button/Button';
 import { SelectGuide } from './SelectGuide';
 import { CreateTitle } from './CreateTitle';
@@ -9,20 +7,69 @@ import { SelectMem } from './SelectMem';
 import { ExplainProject } from './ExplainProject';
 import { CreateDone } from './CreateDone';
 
+const INITAIL = {
+  project_name: '',
+  period: '',
+  project_desc: '',
+  chat_url: '',
+  team_members: [
+    {
+      role: '',
+      recruitment_target: 0,
+    },
+  ],
+};
+
 export function CreateProject() {
-  const [value, setValue] = useState(1);
+  const [valueStep, setValueStep] = useState(1);
   const [isClick, setIsClick] = useState(false);
+  const [values, setValues] = useState(INITAIL);
+
+  const handleChange = (name, val) => {
+    const newValues = values;
+    newValues[name] = val;
+    setValues(newValues);
+    console.log(values);
+  };
 
   const renderContent = () => {
-    switch (value) {
+    switch (valueStep) {
       case 1:
-        return <CreateTitle value={value} />;
+        return (
+          <CreateTitle
+            name="project_name"
+            step={valueStep}
+            value={values.project_name}
+            onChange={handleChange}
+          />
+        );
       case 2:
-        return <SelectGuide value={value} />;
+        return (
+          <SelectGuide
+            name="period"
+            step={valueStep}
+            value={values.period}
+            onChange={handleChange}
+          />
+        );
       case 3:
-        return <SelectMem value={value} />;
+        return (
+          <SelectMem
+            name="team_members"
+            step={valueStep}
+            value={values.team_members}
+            onChange={handleChange}
+          />
+        );
       case 4:
-        return <ExplainProject value={value} />;
+        return (
+          <ExplainProject
+            name="project_name"
+            step={valueStep}
+            value={values.project_name}
+            onChange={handleChange}
+          />
+        );
       case 5:
         return <CreateDone />;
       default:
@@ -31,16 +78,18 @@ export function CreateProject() {
   };
   return (
     <>
-      <TopNav>프로젝트 생성</TopNav>
+      <TopNav setValueStep={setValueStep} step={valueStep}>
+        프로젝트 생성
+      </TopNav>
       <div className="topic-container">{renderContent()}</div>
       <Button
         className={`button ${isClick ? 'clicked' : ''}`}
         onClick={() => {
-          setValue(value + 1);
+          setValueStep(valueStep + 1);
           setIsClick(true);
         }}
       >
-        {value === 5 ? '홈으로' : '다음'}
+        {valueStep === 5 ? '홈으로' : '다음'}
       </Button>
     </>
   );
