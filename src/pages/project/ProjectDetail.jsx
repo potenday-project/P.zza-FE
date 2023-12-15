@@ -7,7 +7,11 @@ import folder from '../../assets/icons/ic_folder.svg';
 import { PROJECT_STEPS } from '../../constant/projectSteps';
 import './ProjectDetail.scss';
 import { Button } from '../../components/button/Button';
-import { getProjectDetail, getMyProjectProgress } from '../../api/project';
+import {
+  getProjectDetail,
+  getMyProjectProgress,
+  postMyProjectDocument,
+} from '../../api/project';
 import { useParams } from 'react-router-dom';
 
 const ProjectDetail = () => {
@@ -44,6 +48,24 @@ const ProjectDetail = () => {
   const selectProjectStep = (e) => {
     const selectedStep = e.currentTarget.dataset.id;
     setSelectedStep(selectedStep);
+  };
+
+  const submitFileQuery = async ({ projectId, progressId, document }) => {
+    try {
+      const data = await postMyProjectDocument({
+        projectId,
+        progressId,
+        document,
+      });
+      return data;
+    } catch (error) {
+      console.error('파일 제출에 실패했습니다:', error);
+    }
+  };
+
+  // 산출물 파일 제출 헨들러
+  const submitFileHandler = () => {
+    submitFileQuery();
   };
 
   return (
