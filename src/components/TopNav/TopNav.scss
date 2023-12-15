@@ -1,3 +1,5 @@
+@import '../../theme.scss';
+
 .topnav-container {
   width: 360px;
   height: 58px;
@@ -9,9 +11,6 @@
 }
 .titles {
   margin: 0 auto;
-  font-size: 16px;
-  font-family: 'Pretendard Variable';
-  font-style: normal;
-  font-weight: 500;
+  @include Subheadline;
   background-color: white;
 }

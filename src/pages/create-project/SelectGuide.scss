@@ -1,0 +1,18 @@
+@import './../../theme.scss';
+
+.frame {
+  display: flex;
+  justify-content: space-between;
+}
+
+.message {
+  background: $gray_100;
+  color: $gray_900;
+  width: 100%;
+  height: auto;
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 32px;
+  color: $gray_800;
+  font-size: 14px;
+}

@@ -5,9 +5,12 @@ import Layout from './components/layout/Layout';
 import Start from './pages/Start';
 
 import SignUp from './pages/sign-up/SignUp';
-import { TopicYesNo } from './pages/create-project/TopicYesNo';
-import { TopicNo } from './pages/create-project/TopicNo';
-import { TopicList } from './pages/create-project/TopicList';
+import { TopicYesNo } from './pages/create-topic/TopicYesNo';
+import { TopicNo } from './pages/create-topic/TopicNo';
+import { TopicList } from './pages/create-topic/TopicList';
+import ProjectDetail from './pages/project/ProjectDetail';
+import { CreateTitle } from './pages/create-project/CreateTitle';
+import { CreateProject } from './pages/create-project/CreateProject';
 
 function App() {
   return (
@@ -18,14 +21,14 @@ function App() {
           <Route path="/sign-up-1" element={<SignUp />} />
           <Route path="/mainpage" element={<div>mainpage</div>} />
 
-          <Route path="/create-project" element={<TopicYesNo></TopicYesNo>} />
+          <Route path="/topic" element={<TopicYesNo></TopicYesNo>} />
           <Route path="/topic-no" element={<TopicNo></TopicNo>} />
           <Route
             path="/topic-no/topic-list"
             element={<TopicList></TopicList>}
           />
-
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/create-project" element={<CreateProject />} />
         </Routes>
       </Layout>
     </BrowserRouter>

@@ -7,7 +7,7 @@ export function TopNav({ children }) {
   return (
     <div className="topnav-container">
       <img src={back} className="back" onClick={() => navigate(-1)} />
-      <div className="titles"> {children}</div>
+      <h1 className="titles"> {children}</h1>
     </div>
   );
 }
