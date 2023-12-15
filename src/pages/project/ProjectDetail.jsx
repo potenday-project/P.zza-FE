@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../../components/elements/Header';
 import pzza from '../../assets/images/img_logo_pzza.svg';
 import idea from '../../assets/icons/ic_idea.svg';
@@ -7,11 +7,52 @@ import folder from '../../assets/icons/ic_folder.svg';
 import { PROJECT_STEPS } from '../../constant/projectSteps';
 import './ProjectDetail.scss';
 import { Button } from '../../components/button/Button';
+import { getProjectDetail, getMyProjectProgress } from '../../api/project';
+import { useParams } from 'react-router-dom';
 
 const ProjectDetail = () => {
+  const param = useParams();
+  const [projectData, setProjectData] = useState({});
+  const [myProjectProgress, setMyProjectProgress] = useState({});
+  const [selectedStep, setSelectedStep] = useState(1);
+
+  useEffect(() => {
+    // 내 프로젝트 불러오는 쿼리
+    const getProjectDataQuery = async () => {
+      try {
+        const data = await getProjectDetail(param.id);
+        setProjectData(data);
+      } catch (error) {
+        console.error('프로젝트 데이터를 불러오는 데 실패했습니다:', error);
+      }
+    };
+    // 내 프로젝트 진행도 불러오는 쿼리
+    const getMyProjectProgressQuery = async () => {
+      try {
+        const data = await getMyProjectProgress({ projectId, progressId });
+        setMyProjectProgress(data);
+      } catch (error) {
+        console.error('프로젝트 진행도를 불러오는 데 실패했습니다:', error);
+      }
+    };
+
+    getProjectDataQuery();
+    getMyProjectProgressQuery();
+  }, []);
+
+  // step 선택 핸들러
+  const selectProjectStep = (e) => {
+    const selectedStep = e.currentTarget.dataset.id;
+    setSelectedStep(selectedStep);
+  };
+
   return (
     <div>
-      <Header title="프로젝트명" />
+      <Header
+        title={projectData.project_name}
+        useType="project"
+        projectUrl={myProjectProgress.chat_url}
+      />
       <article>
         <div className="project_banner">
           <img src={pzza} alt="피자로고" />
@@ -21,8 +62,12 @@ const ProjectDetail = () => {
         <div className="project_steps">
           <ul className="steps_list">
             {PROJECT_STEPS.map((step, idx) => (
-              <li key={step.name}>
-                <div className="step_box">{step.id}</div>
+              <li
+                key={step.name}
+                data-id={step.step - 1}
+                onClick={(e) => selectProjectStep(e)}
+              >
+                <div className="step_box">{step.step}</div>
                 <div className="step_text">
                   <p>Step {idx + 1}</p>
                 </div>
@@ -35,8 +80,11 @@ const ProjectDetail = () => {
               단계별 가이드
             </h2>
             <div className="info_box">
-              <p className="desc_title">STEP 1. {PROJECT_STEPS[0].name}</p>
-              <p className="desc_text">{PROJECT_STEPS[0].desc}</p>
+              <p className="desc_title">
+                STEP {Number(selectedStep) + 1}.{' '}
+                {PROJECT_STEPS[selectedStep].name}
+              </p>
+              <p className="desc_text">{PROJECT_STEPS[selectedStep].desc}</p>
             </div>
           </div>
         </div>
@@ -53,7 +101,7 @@ const ProjectDetail = () => {
       </article>
       <article>
         <div className="wrap_box">
-          <h2>
+          <h2 style={{ marginBottom: '24px' }}>
             <img src={email} alt="참여요청 현황 아이콘" />
             참여 요청 현황
           </h2>
