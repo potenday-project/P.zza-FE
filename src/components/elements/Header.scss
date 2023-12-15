@@ -13,4 +13,24 @@ header {
   & h1 {
     @include Subheadline;
   }
+  & .drop_menu {
+    position: absolute;
+    width: initial;
+    height: 0;
+    top: 53px;
+    right: 5px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: ease-in 0.2s;
+    overflow: hidden;
+
+    & button {
+      display: block;
+      padding: 10px;
+    }
+  }
+  & .drop_menu.open {
+    height: 135px;
+  }
 }
