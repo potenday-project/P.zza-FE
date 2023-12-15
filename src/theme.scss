@@ -45,7 +45,7 @@ $alert: #e71800;
 @mixin Title4 {
   font-size: 24px;
   line-height: 32px;
-  font-weight: 800;
+  font-weight: 500;
 }
 
 @mixin Headline {
@@ -80,7 +80,7 @@ $alert: #e71800;
 @mixin Body1 {
   font-size: 16px;
   line-height: 22px;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 @mixin Body2 {

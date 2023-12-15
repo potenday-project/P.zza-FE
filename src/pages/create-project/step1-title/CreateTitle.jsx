@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { TopNav } from '../../components/TopNav/TopNav';
-import { Step } from '../../components/step/Step';
-import { Input } from '../../components/input/Input';
-import { Button } from '../../components/button/Button';
+import { TopNav } from '../../../components/TopNav/TopNav';
+import { Step } from '../../../components/step/Step';
+
 import './CreateTitle.scss';
+import { Input } from '../../../components/input/Input';
+import { Button } from '../../../components/button/Button';
 
 export function CreateTitle({ step, value, name, onChange }) {
   const [title, setTitle] = useState(value);

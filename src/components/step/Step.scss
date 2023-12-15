@@ -23,7 +23,5 @@
 }
 
 .text {
-  font-size: 24px;
-  font-family: 'Pretendard Variable';
-  font-style: 'SemiBold';
+  @include Title4;
 }

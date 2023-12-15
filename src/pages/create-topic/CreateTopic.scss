@@ -3,13 +3,23 @@
 .topic-bg {
   background-color: $primary;
   text-align: center;
-  height: 100%;
+  height: 100vh;
   margin: 0;
   padding: 0;
 }
 .topic-title {
-  padding-top: 40px;
   padding-bottom: 83px;
+}
+
+.topic-title > h3 {
+  @include Title4;
+  color: white;
+  padding-top: 40px;
+  padding-bottom: 8px;
+}
+
+.topic-title > p {
+  color: white;
 }
 .select-btn {
   width: 328px;

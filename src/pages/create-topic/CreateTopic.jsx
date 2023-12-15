@@ -1,12 +1,13 @@
 import { TopNav } from '../../components/TopNav/TopNav';
-import './TopicYesNo.scss';
+import './CreateTopic.scss';
 import topic_charac from '../../images/topic_charac.svg';
 import { Button } from '../../components/button/Button';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-export function TopicYesNo() {
+export function CreateTopic() {
   const [isClick, setIsClick] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       <TopNav>프로젝트 주제</TopNav>
@@ -17,12 +18,24 @@ export function TopicYesNo() {
         </div>
 
         <img src={topic_charac} className="image"></img>
-        <Link to="/topic-no">
-          <Button className={`select-btn ${isClick ? 'clicked' : ''}`}>
-            정했어요!
-          </Button>
-        </Link>
-        <Button className={`select-btn ${isClick ? 'clicked' : ''}`}>
+
+        <Button
+          className={`select-btn ${isClick ? 'clicked' : ''}`}
+          onClick={() => {
+            setIsClick(true);
+            navigate('../create-project');
+          }}
+        >
+          정했어요!
+        </Button>
+
+        <Button
+          className={`select-btn ${isClick ? 'clicked' : ''}`}
+          onClick={() => {
+            setIsClick(true);
+            navigate('./keyword');
+          }}
+        >
           정하지 못했어요
         </Button>
       </div>

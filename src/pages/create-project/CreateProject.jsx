@@ -1,12 +1,13 @@
 import { TopNav } from '../../components/TopNav/TopNav';
 import { useState } from 'react';
 import { Button } from '../../components/button/Button';
-import { SelectGuide } from './SelectGuide';
-import { CreateTitle } from './CreateTitle';
-import { SelectMem } from './SelectMem';
-import { ExplainProject } from './ExplainProject';
-import { CreateDone } from './CreateDone';
+
 import { useNavigate } from 'react-router-dom';
+import { CreateTitle } from './step1-title/CreateTitle';
+import { SelectGuide } from './step2-type/SelectGuide';
+import { SelectMem } from './step3-member/SelectMem';
+import { ExplainProject } from './step4-intro/ExplainProject';
+import { CreateDone } from './step5-finish/CreateDone';
 
 const INITAIL = {
   project_name: '',

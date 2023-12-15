@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { TopNav } from '../../components/TopNav/TopNav';
-import { Step } from '../../components/step/Step';
-import { Input } from '../../components/input/Input';
-import { Button } from '../../components/button/Button';
-import './CreateTitle.scss';
+import { TopNav } from '../../../components/TopNav/TopNav';
+import { Step } from '../../../components/step/Step';
+import { Input } from '../../../components/input/Input';
+import { Button } from '../../../components/button/Button';
+import './ExplainProject.scss';
 
 export function ExplainProject({
   step,

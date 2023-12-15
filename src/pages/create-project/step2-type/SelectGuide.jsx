@@ -1,5 +1,5 @@
-import { Step } from '../../components/step/Step';
-import { Option } from '../../components/option/Option';
+import { Step } from '../../../components/step/Step';
+import { Option } from '../../../components/option/Option';
 import './SelectGuide.scss';
 import { useEffect, useState } from 'react';
 
