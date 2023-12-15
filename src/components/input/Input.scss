@@ -1,22 +1,41 @@
 @import './../../theme.scss';
 
 .label {
-  font-family: 'Pretendard Variable';
-  font-style: normal;
   font-weight: 600;
   font-size: 15px;
   line-height: 26px;
 }
 
 .inputbox {
+  position: relative;
   width: 100%;
   height: 56px;
   border-radius: 8px;
   border: 1px solid $gray_300;
   display: flex;
-  flex-direction: column;
   padding: 16px;
   margin-bottom: 8px;
+  background-color: white;
+  &.input-active,
+  &:focus-within {
+    background-color: $gray_100; // Set the background color when clicked or has value
+  }
+}
+
+.text-area-box {
+  position: relative;
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  border: 1px solid $gray_300;
+  display: flex;
+  padding: 16px;
+  margin-bottom: 8px;
+  background-color: white;
+  &.input-active,
+  &:focus-within {
+    background-color: $gray_100; // Set the background color when clicked or has value
+  }
 }
 
 .input {
@@ -27,11 +46,24 @@
   font-size: 16px;
   line-height: 22px;
   border: none;
-  color: $gray_400;
+  //  color: $gray-900;
   font-weight: 300;
 
-  &:focus {
-    outline: none;
-    color: $gray-900;
+  background-color: white;
+
+  &::placeholder {
+    color: $gray-500; /* placeholder 색상을 원하는 회색으로 지정 */
   }
+
+  &.input-active,
+  &:focus-within {
+    outline: none;
+    color: $gray_900;
+    background-color: $gray_100; // Set the background color when clicked or has value
+  }
+}
+
+.delete-icn {
+  position: absolute;
+  right: 16px;
 }

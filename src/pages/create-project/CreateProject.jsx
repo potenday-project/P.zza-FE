@@ -6,6 +6,7 @@ import { CreateTitle } from './CreateTitle';
 import { SelectMem } from './SelectMem';
 import { ExplainProject } from './ExplainProject';
 import { CreateDone } from './CreateDone';
+import { useNavigate } from 'react-router-dom';
 
 const INITAIL = {
   project_name: '',
@@ -24,6 +25,8 @@ export function CreateProject() {
   const [valueStep, setValueStep] = useState(1);
   const [isClick, setIsClick] = useState(false);
   const [values, setValues] = useState(INITAIL);
+
+  const navigate = useNavigate();
 
   const handleChange = (name, val) => {
     const newValues = values;
@@ -64,9 +67,11 @@ export function CreateProject() {
       case 4:
         return (
           <ExplainProject
-            name="project_name"
+            desc_name="project_desc"
+            url_name="chat_url"
             step={valueStep}
-            value={values.project_name}
+            desc={values.project_desc}
+            chat_url={values.chat_url}
             onChange={handleChange}
           />
         );
@@ -76,6 +81,8 @@ export function CreateProject() {
         return null;
     }
   };
+
+  if (valueStep === 5) navigate('../mainpage');
   return (
     <>
       <TopNav setValueStep={setValueStep} step={valueStep}>

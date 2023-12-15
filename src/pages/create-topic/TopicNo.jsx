@@ -22,7 +22,7 @@ export function TopicNo() {
   return (
     <div>
       <TopNav>프로젝트 주제</TopNav>
-      <div className="topic-container">
+      <div className="keyword-container">
         <h3>
           관심사를 키워드로 입력해보세요 <br /> AI가 주제를 추천해드립니다.
         </h3>

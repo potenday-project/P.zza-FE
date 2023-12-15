@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 export function SelectMem({ step, name, value, onChange }) {
   const [teams, setTeams] = useState(value);
-
   const handleTeamChange = (val) => {
     const newTeams = [...teams];
     newTeams.push({
@@ -14,6 +13,7 @@ export function SelectMem({ step, name, value, onChange }) {
     });
     setTeams(newTeams);
     onChange(name, newTeams);
+    //
   };
   console.log(teams);
   return (
