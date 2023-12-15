@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Start from './pages/Start';
 import SignUp1 from './pages/SignUp1';
+import MyProject from './pages/project/MyProject';
 import ProjectDetail from './pages/project/ProjectDetail';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
           <Route path="/sign-up-1" element={<SignUp1 />} />
           <Route path="/mainpage" element={<div>mainpage</div>} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/myproject" element={<MyProject />} />
         </Routes>
       </Layout>
     </BrowserRouter>

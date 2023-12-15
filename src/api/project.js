@@ -25,6 +25,19 @@ export const getProjectDetail = async (projectId) => {
   }
 };
 
+// 내 프로젝트 진행도 조회
+export const getMyProjectProgress = async ({ projectId, progressId }) => {
+  try {
+    const response = await instance.get(
+      `/project/${projectId}/progress/${progressId}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 // 내 프로젝트 조회
 export const getMyProject = async () => {
   try {
@@ -36,6 +49,7 @@ export const getMyProject = async () => {
   }
 };
 
+// 산출물 제출하기
 export const postMyProjectDocument = async (
   projectId,
   progressId,
@@ -58,8 +72,8 @@ export const postMyProjectDocument = async (
   }
 };
 
-// 내 프로젝트 진행도 조회
-export const getMyProjectProgress = async () => {
+// 내 프로젝트 진행중 조회
+export const getMyProjectInProgress = async () => {
   try {
     const response = await instance.get('/my-projects/in-progress');
     return response.data;
@@ -73,6 +87,39 @@ export const getMyProjectProgress = async () => {
 export const getMyProjectPending = async () => {
   try {
     const response = await instance.get('/my-projects/under-review');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// 내 프로젝트 완료 조회
+export const getMyProjectCompleted = async () => {
+  try {
+    const response = await instance.get('/my-projects/completion');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// 내 프로젝트 거절 조회
+export const getMyProjectRejected = async () => {
+  try {
+    const response = await instance.get('/my-projects/rejection');
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// 내 프로젝트 중단 조회
+export const getMyProjectStoped = async () => {
+  try {
+    const response = await instance.get('/my-projects/stop');
     return response.data;
   } catch (error) {
     console.error(error);
