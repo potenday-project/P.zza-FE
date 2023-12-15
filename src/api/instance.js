@@ -10,10 +10,11 @@ export const instance = axios.create({
 
 instance.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('accessToken');
-    if (token) {
-      config.headers.ACCESS_KEY = `${token}`;
-    }
+    config.headers.ACCESS_KEY = `e26c62de-2ece-4830-93cc-8184c417dd1e`;
+    // const token = localStorage.getItem('accessToken');
+    // if (token) {
+    //   config.headers.ACCESS_KEY = `${token}}`;
+    // }
     return config;
   },
   (error) => Promise.reject(error)

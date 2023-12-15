@@ -2,10 +2,10 @@ import axios from 'axios';
 import { instance } from './instance';
 
 // 전체 프로젝트 조회
-export const getAllProjects = async ({ offset, id }) => {
+export const getAllProjects = async (offset, status) => {
   try {
     const response = await instance.get(
-      `/projects?offset=${offset}&status=${id}`
+      `/projects?offset=${offset}&status=${status}`
     );
     return response.data;
   } catch (error) {
