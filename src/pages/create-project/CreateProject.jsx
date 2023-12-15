@@ -5,6 +5,7 @@ import { Step } from '../../components/step/Step';
 import { Button } from '../../components/button/Button';
 import { SelectGuide } from './SelectGuide';
 import { CreateTitle } from './CreateTitle';
+import { SelectMem } from './SelectMem';
 
 export function CreateProject() {
   const [value, setValue] = useState(1);
@@ -16,6 +17,10 @@ export function CreateProject() {
         return <CreateTitle value={value} />;
       case 2:
         return <SelectGuide value={value} />;
+      case 3:
+        return <SelectMem value={value} />;
+      case 4:
+        return <SelectMem value={value} />;
       default:
         return null;
     }

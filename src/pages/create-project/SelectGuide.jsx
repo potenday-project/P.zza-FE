@@ -1,8 +1,6 @@
-import optioncharac from '../../assets/icons/optioncharac.svg';
-import active_optioncharac from '../../assets/icons/active_optioncharac.svg';
 import { Step } from '../../components/step/Step';
-import './SelectGuide.scss';
 import { Option } from '../../components/option/Option';
+import './SelectGuide.scss';
 
 export function SelectGuide({ value }) {
   return (

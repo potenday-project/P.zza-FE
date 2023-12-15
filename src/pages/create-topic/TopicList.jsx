@@ -29,7 +29,7 @@ export function TopicList() {
           <Button
             className={`half-button ${isClick ? 'clicked' : ''}`}
             onClick={() => {
-              navigate(-1);
+              navigate('/create-project');
               setIsClick(true);
             }}
           >

@@ -1,0 +1,15 @@
+/* SelectMem.scss */
+
+.frame {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+
+/* Option 컴포넌트에 추가 스타일링이 필요한 경우 Option.scss에 스타일링을 추가하세요. */
