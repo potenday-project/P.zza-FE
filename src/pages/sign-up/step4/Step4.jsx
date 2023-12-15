@@ -1,5 +1,6 @@
 // CompletionPage.jsx
 import React from 'react';
+import './Step4.scss';
 
 const CompletionPage = () => (
   <div className="text-container">

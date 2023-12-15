@@ -1,7 +1,7 @@
 @import '../../theme.scss';
 
 .white-bg {
-  height: 320px;
+  height: fit-content;
   border-radius: 8px;
   font-family: 'Pretendard Variable';
   font-style: normal;
@@ -96,6 +96,8 @@
 }
 .exp-container {
   padding: 8px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
   font-weight: 500;
 }
