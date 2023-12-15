@@ -1,0 +1,20 @@
+@import './../../theme.scss';
+
+.done-container {
+  display: flex;
+  flex-direction: column;
+
+  gap: 125px;
+}
+
+.done-text {
+  align-items: flex-start;
+  margin-top: 54px;
+  color: $gray_900;
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.project-img {
+  padding: 16px;
+}
