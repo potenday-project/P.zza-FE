@@ -3,11 +3,9 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Start from './pages/Start';
-
 import SignUp from './pages/sign-up/SignUp';
-
+import MyProject from './pages/project/MyProject';
 import ProjectDetail from './pages/project/ProjectDetail';
-
 import { CreateProject } from './pages/create-project/CreateProject';
 import { CreateTopic } from './pages/create-topic/CreateTopic';
 import { TopicKeyword } from './pages/create-topic/TopicKeyword';
@@ -26,6 +24,7 @@ function App() {
           <Route path="/create-topic/keyword" element={<Recommendation />} />
           <Route path="/create-project" element={<CreateProject />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/myproject" element={<MyProject />} />
         </Routes>
       </Layout>
     </BrowserRouter>
