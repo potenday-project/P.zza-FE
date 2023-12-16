@@ -31,14 +31,12 @@ function SignUp() {
     // console.log(newValues);
   };
 
-  if (value === 5) {
-    const one = localStorage.getItem('user');
-    console.log(one);
-  }
-
   useEffect(() => {
     localStorage.setItem('user', []);
-  }, []);
+    if (value === 5) {
+      localStorage.setItem('user', JSON.stringify(userValue));
+    }
+  }, [value, userValue]);
 
   const renderContent = () => {
     switch (value) {
