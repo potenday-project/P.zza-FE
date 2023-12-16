@@ -4,6 +4,7 @@ import topic_charac from '../../images/topic_charac.svg';
 import { Button } from '../../components/button/Button';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Header from '../../components/elements/Header';
 
 export function CreateTopic() {
   const [isClick, setIsClick] = useState(false);

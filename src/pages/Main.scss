@@ -2,6 +2,8 @@
 
 .bg-gray {
   background: $gray_50;
+  position: relative;
+  width: 100%;
 }
 
 .main-title {
@@ -42,9 +44,33 @@
   color: $primary;
   background: white;
   @include Body2;
+  cursor: pointer;
+}
+.active {
+  background: $primary;
+  color: white;
 }
 
 .project-section {
   width: 100%;
   height: fit-content;
+}
+
+// .add-icn {
+//   position: fixed;
+//   bottom: 10px;
+//   right: 10px;
+//   padding: 10px;
+//   cursor: pointer;
+// }
+
+.add-container {
+  position: sticky;
+  bottom: 10px;
+  right: 10px;
+  max-width: 600px;
+  height: fit-content;
+  cursor: pointer;
+  float: right;
+  padding: 20px;
 }

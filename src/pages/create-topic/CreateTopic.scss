@@ -22,7 +22,7 @@
   color: white;
 }
 .select-btn {
-  width: 328px;
+  width: calc(100% - 32px);
   height: 56px;
   border-radius: 8px;
   color: $gray_50;
