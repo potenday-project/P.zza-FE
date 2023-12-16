@@ -6,13 +6,15 @@ import done from '../assets/icons/done.svg';
 import stop from '../assets/icons/stop.svg';
 import './Main.scss';
 import { ProjectCard } from '../components/ProjectCard/ProjectCard';
+import { useNavigate } from 'react-router-dom';
 
 export function Main() {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray">
       <header className="header">
         <img src={logo} />
-        <img src={home} />
+        <img src={home} onClick={() => navigate('../myproject')} />
       </header>
 
       <div className="banner">

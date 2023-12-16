@@ -19,7 +19,7 @@ export function SelectMem({ step, name, value, onChange }) {
   return (
     <div>
       <Step value={step}>어떤 팀원과 함께하고 싶나요?</Step>
-      <div className="frame">
+      <div className="mem-frame">
         <div className="row">
           <Option onSelect={handleTeamChange} name={name}>
             BE개발

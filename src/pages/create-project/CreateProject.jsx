@@ -8,6 +8,7 @@ import { SelectGuide } from './step2-type/SelectGuide';
 import { SelectMem } from './step3-member/SelectMem';
 import { ExplainProject } from './step4-intro/ExplainProject';
 import { CreateDone } from './step5-finish/CreateDone';
+import Header from '../../components/elements/Header';
 
 const INITAIL = {
   project_name: '',
@@ -86,9 +87,7 @@ export function CreateProject() {
   if (valueStep === 5) navigate('../mainpage');
   return (
     <>
-      <TopNav setValueStep={setValueStep} step={valueStep}>
-        프로젝트 생성
-      </TopNav>
+      <Header title="프로젝트 생성"></Header>
       <div className="topic-container">{renderContent()}</div>
       <Button
         className={`button ${isClick ? 'clicked' : ''}`}

@@ -1,14 +1,20 @@
 @import '../../../theme.scss';
-.frame {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+.mem-frame {
+  width: 100%;
+  flex-grow: 1;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px; /* 그리드 아이템 사이의 간격 설정 (선택 사항) */
 }
 
 .row {
+  gap: 10px;
   display: flex;
-  gap: 16px;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
 /* Option 컴포넌트에 추가 스타일링이 필요한 경우 Option.scss에 스타일링을 추가하세요. */

@@ -3,6 +3,7 @@
 .option-container {
   width: 156px;
   height: 156px;
+  flex-grow: 1;
   background: $gray_100;
   display: flex;
   flex-direction: column;
