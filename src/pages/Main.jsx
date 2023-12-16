@@ -9,6 +9,7 @@ import './Main.scss';
 import { ProjectCard } from '../components/ProjectCard/ProjectCard';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import data from '../project.json';
 
 export function Main() {
   const navigate = useNavigate();
@@ -79,10 +80,20 @@ export function Main() {
         </div>
       </div>
 
-      <div class="project-section">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
-          <ProjectCard></ProjectCard>
-        ))}
+      <div className="project-section">
+        <ul>
+          {data.map((item) => (
+            <li key={item.project_id}>
+              <ProjectCard
+                id={item.project_id}
+                status={item.project_status}
+                name={item.project_name}
+                desc={item.project_desc}
+                mem={item.team_members}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
       <AddProject></AddProject>
     </div>

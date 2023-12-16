@@ -20,6 +20,9 @@
     color: white;
     border-radius: 4px;
     font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .pj-title {
     @include Subheadline;
@@ -31,17 +34,22 @@
   @include Body2;
 }
 
-.position {
+.position-container .position {
   padding: 6px 8px;
-  border: 1px solid $gray_700;
+  border: 1px solid $gray_300;
   border-radius: 8px;
+  color: $gray_700;
   @include Caption1;
 }
-
 .position-container {
   display: flex;
   gap: 8px;
   padding: 8px 0;
+
+  .over {
+    background: $gray_300;
+    color: $gray_50;
+  }
 }
 
 .elements {

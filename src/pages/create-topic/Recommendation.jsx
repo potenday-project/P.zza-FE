@@ -6,6 +6,7 @@ import recommend_charac from '../../images/recommend_charac.svg';
 
 import './Recommendation.scss';
 import { TopicKeyword } from './TopicKeyword';
+import Header from '../../components/elements/Header';
 
 export function Recommendation() {
   const [isClick, setIsClick] = useState(false);
