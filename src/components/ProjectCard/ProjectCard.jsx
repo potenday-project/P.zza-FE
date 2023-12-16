@@ -2,7 +2,6 @@ import { useState } from 'react';
 import './ProjectCard.scss';
 
 export function ProjectCard({ id, status, name, desc, mem }) {
-  const [pjStatus, setpjStatus] = useState();
   return (
     <div className="card-container">
       <div class="elements">

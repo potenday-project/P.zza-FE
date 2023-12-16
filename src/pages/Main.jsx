@@ -13,8 +13,18 @@ import data from '../project.json';
 
 export function Main() {
   const navigate = useNavigate();
-  const [isClick, setIsClick] = useState([false, false, false, false]);
-  const [status, setStatus] = useState(0);
+  const [isClick, setIsClick] = useState([true, true, true, true]);
+  const [status, setStatus] = useState();
+
+  const filteredData = data.filter((item) => {
+    if (isClick[0]) return true; // '전체'가 선택된 경우 모든 데이터 표시
+    let filterCondition = false;
+    if (isClick[1] && item.project_status === '모집중') filterCondition = true;
+    if (isClick[2] && item.project_status === '완료') filterCondition = true;
+    if (isClick[3] && item.project_status === '중단') filterCondition = true;
+    return filterCondition;
+  });
+
   return (
     <div className="bg-gray">
       <header className="header">
@@ -35,6 +45,7 @@ export function Main() {
           onClick={() => {
             const newClick = isClick.map(() => !isClick[0]);
             setIsClick(newClick);
+            setStatus('전체');
           }}
         >
           전체
@@ -46,7 +57,7 @@ export function Main() {
             newClick[1] = !newClick[1];
             if (newClick[0]) newClick[0] = !newClick[0];
             setIsClick(newClick);
-            setStatus(1);
+            setStatus('모집중');
           }}
         >
           <img src={ing} />
@@ -59,7 +70,7 @@ export function Main() {
             newClick[2] = !newClick[2];
             if (newClick[0]) newClick[0] = !newClick[0];
             setIsClick(newClick);
-            setStatus(2);
+            setStatus('완료');
           }}
         >
           <img src={done} />
@@ -72,7 +83,7 @@ export function Main() {
             newClick[3] = !newClick[3];
             if (newClick[0]) newClick[0] = !newClick[0];
             setIsClick(newClick);
-            setStatus(3);
+            setStatus('중단');
           }}
         >
           <img src={stop} />
@@ -82,7 +93,7 @@ export function Main() {
 
       <div className="project-section">
         <ul>
-          {data.map((item) => (
+          {filteredData.map((item) => (
             <li key={item.project_id}>
               <ProjectCard
                 id={item.project_id}
@@ -101,7 +112,7 @@ export function Main() {
 }
 
 function AddProject() {
-  const navigate = useNavigate();
+  const navigate = use진Navigate();
   const [isClick, setIsClick] = useState(false);
   return (
     <div className="add-container" onClick={() => navigate('../create-topic')}>
