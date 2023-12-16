@@ -1,11 +1,16 @@
 @import '../../../src/theme.scss';
 
 .topic-bg {
-  background-color: $primary;
-  text-align: center;
+  background-color: $orange_700;
   height: 100vh;
+
   margin: 0;
-  padding: 0;
+  padding: 0 16px;
+
+  .image {
+    margin: 102 99px;
+    text-align: center;
+  }
 }
 .topic-title {
   padding-bottom: 83px;
@@ -21,22 +26,20 @@
 .topic-title > p {
   color: white;
 }
+
 .select-btn {
   width: calc(100% - 32px);
+  max-width: 578px;
   height: 56px;
   border-radius: 8px;
   color: $gray_50;
   background: $secondary;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
   margin-bottom: 16px;
-}
 
-.image {
-  margin-bottom: 85px;
-}
-
-.select-btn.clicked {
-  background-color: $gray_900;
-  color: #ffffff;
+  &.btn-clicked {
+    background: $gray_900;
+    color: #ffffff;
+  }
 }

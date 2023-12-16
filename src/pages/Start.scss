@@ -3,13 +3,13 @@
 .bg {
   background-color: $primary;
   text-align: center;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   padding: 0;
 }
 
 .sub-title {
-  padding-top: 133px;
+  padding-top: 123px;
   margin-bottom: 7px;
   color: white;
 }
@@ -27,4 +27,5 @@
   margin-top: 100px;
   background: #fae100;
   border-radius: 8px;
+  margin-bottom: 40px;
 }

@@ -7,7 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Header from '../../components/elements/Header';
 
 export function CreateTopic() {
-  const [isClick, setIsClick] = useState(false);
+  const [btnClick, setBtnClick] = useState([false, false]);
   const navigate = useNavigate();
   return (
     <>
@@ -17,28 +17,41 @@ export function CreateTopic() {
           <h3>프로젝트 주제를 선정하셨나요?</h3>
           <p>주제가 없으면 저희가 도와드릴게요 !</p>
         </div>
+        <div className="image">
+          <img src={topic_charac} />
+        </div>
+        <div className="selectbtn-container">
+          <Button
+            className={`select-btn ${btnClick[0] ? 'btn-clicked' : ''}`}
+            more={true}
+            onClick={() => {
+              const newArray = [...btnClick]; // 배열의 복사본 생성
+              newArray[0] = true; // 0번 인덱스 값을 수정
+              setBtnClick(newArray); // 상태 업데이트
 
-        <img src={topic_charac} className="image"></img>
+              setTimeout(() => {
+                navigate('../create-project');
+              }, 200);
+            }}
+          >
+            정했어요!
+          </Button>
 
-        <Button
-          className={`select-btn ${isClick ? 'clicked' : ''}`}
-          onClick={() => {
-            setIsClick(true);
-            navigate('../create-project');
-          }}
-        >
-          정했어요!
-        </Button>
+          <Button
+            className={`select-btn ${btnClick[1] ? 'btn-clicked' : ''}`}
+            onClick={() => {
+              const newArray = [...btnClick]; // 배열의 복사본 생성
+              newArray[1] = true; // 0번 인덱스 값을 수정
+              setBtnClick(newArray); // 상태 업데이트
 
-        <Button
-          className={`select-btn ${isClick ? 'clicked' : ''}`}
-          onClick={() => {
-            setIsClick(true);
-            navigate('./keyword');
-          }}
-        >
-          정하지 못했어요
-        </Button>
+              setTimeout(() => {
+                navigate('./keyword');
+              }, 200);
+            }}
+          >
+            정하지 못했어요
+          </Button>
+        </div>
       </div>
     </>
   );

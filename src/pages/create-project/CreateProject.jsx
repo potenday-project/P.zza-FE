@@ -9,6 +9,7 @@ import { SelectMem } from './step3-member/SelectMem';
 import { ExplainProject } from './step4-intro/ExplainProject';
 import { CreateDone } from './step5-finish/CreateDone';
 import Header from '../../components/elements/Header';
+import './CreateProject.scss';
 
 const INITAIL = {
   project_name: '',

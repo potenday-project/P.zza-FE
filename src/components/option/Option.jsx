@@ -1,9 +1,7 @@
-import optioncharac from '../../assets/icons/optioncharac.svg';
-import active_optioncharac from '../../assets/icons/active_optioncharac.svg';
 import { useState } from 'react';
 import './Option.scss';
 
-export function Option({ children, onSelect }) {
+export function Option({ children, onSelect, onClick, src, active }) {
   const [isClick, setIsClick] = useState(false);
 
   const handleChange = () => {
@@ -13,13 +11,10 @@ export function Option({ children, onSelect }) {
 
   return (
     <div
-      className={`option-container ${isClick ? 'clicked' : ''}`}
-      onClick={handleChange}
+      className={`option-container ${active ? 'clicked' : ''}`}
+      onClick={onClick}
     >
-      <img
-        src={isClick ? active_optioncharac : optioncharac}
-        alt="option icon"
-      />
+      <img src={src} alt="option icon" />
       <div>{children}</div>
     </div>
   );

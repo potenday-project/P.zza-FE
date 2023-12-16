@@ -5,8 +5,8 @@ import './Step4.scss';
 function CompletionPage() {
   return (
     <div className="text-container">
-      <div>프로필 작성이 완료되었어요!</div>
-      <div>
+      <div className="title">프로필 작성이 완료되었어요!</div>
+      <div className="title">
         이제 원하는 프로젝트를 <br />
         찾아보세요
       </div>

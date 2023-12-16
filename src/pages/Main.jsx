@@ -113,10 +113,21 @@ export function Main() {
 
 function AddProject() {
   const navigate = useNavigate();
-  const [isClick, setIsClick] = useState(false);
+  const [addClick, setAddClick] = useState(false);
+  const handleClick = () => {
+    setAddClick(!addClick); // 클릭 상태를 토글
+
+    setTimeout(() => {
+      navigate('../create-topic'); // 애니메이션 후 페이지 이동
+    }, 200); // 애니메이션 지속 시간 500ms
+  };
+
   return (
-    <div className="add-container" onClick={() => navigate('../create-topic')}>
-      <img className="add-icn" src={plus_icon}></img>
+    <div
+      className={`add-container ${addClick ? 'color-change' : ''}`}
+      onClick={handleClick}
+    >
+      <img className="add-icn" src={plus_icon} />
     </div>
   );
 }

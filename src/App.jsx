@@ -1,5 +1,5 @@
 import './App.css';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 import Start from './pages/Start';
@@ -14,6 +14,13 @@ import { Main } from './pages/Main';
 import { Project, ProjectAbout } from './pages/project/ProjectAbout';
 
 function App() {
+  function setScreenSize() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  }
+  useEffect(() => {
+    setScreenSize();
+  });
   return (
     <BrowserRouter>
       <Layout>

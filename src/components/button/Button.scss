@@ -1,36 +1,49 @@
 @import '../../theme.scss';
 
-.button {
-  width: 328px;
-  height: 56px;
-  border-radius: 8px;
-  color: white;
+.btn-container {
   position: fixed;
-  top: 686px; /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  background: $gray_300;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+  .button {
+    width: 100%;
+    max-width: 328px;
+    height: 56px;
+    border-radius: 8px;
+    color: white;
+    background: $primary;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin: 18px auto;
+    // width: 328px;
+    // height: 56px;
+    // border-radius: 8px;
+    // color: white;
+    // position: fixed;
+    // bottom: 0;
+    // left: 0;
+    // transform: translateX(-50%);
+    // background: $gray_300;
+    // cursor: pointer;
+    // transition: background-color 0.3s ease;
+  }
 }
 .half-button {
   width: 156px;
   height: 56px;
   border-radius: 8px;
   color: white;
-
   background: $gray_300;
   cursor: pointer;
   transition: background-color 0.3s ease;
-}
-
-.button-container {
-  position: fixed;
-  top: 686px; /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
-  gap: 20px;
-  display: flex;
 }
 
 .button.clicked {

@@ -21,7 +21,7 @@
 }
 
 .banner {
-  padding: 13px 16px;
+  padding: 24px 16px;
 }
 
 .chip-container {
@@ -56,21 +56,26 @@
   height: fit-content;
 }
 
-// .add-icn {
-//   position: fixed;
-//   bottom: 10px;
-//   right: 10px;
-//   padding: 10px;
-//   cursor: pointer;
-// }
-
 .add-container {
-  position: sticky;
-  bottom: 10px;
-  right: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   max-width: 600px;
   height: fit-content;
+  text-align: right;
+  padding: 24px 16px;
+  transition: opacity 0.3s ease;
+  opacity: 0.5;
+
+  &.color-change {
+    opacity: 1;
+  }
+}
+
+.add-icn {
   cursor: pointer;
-  float: right;
-  padding: 20px;
+  margin: 18px auto;
 }
