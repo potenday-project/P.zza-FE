@@ -11,6 +11,7 @@ import { CreateTopic } from './pages/create-topic/CreateTopic';
 import { TopicKeyword } from './pages/create-topic/TopicKeyword';
 import { Recommendation } from './pages/create-topic/Recommendation';
 import { Main } from './pages/Main';
+import { Project, ProjectAbout } from './pages/project/ProjectAbout';
 
 function App() {
   return (
@@ -20,11 +21,15 @@ function App() {
           <Route path="/" element={<Start />} />
           <Route path="/sign-up-1" element={<SignUp />} />
           <Route path="/mainpage" element={<Main></Main>} />
+          <Route
+            path="/project-about"
+            element={<ProjectAbout></ProjectAbout>}
+          />
 
           <Route path="/create-topic" element={<CreateTopic></CreateTopic>} />
           <Route path="/create-topic/keyword" element={<Recommendation />} />
           <Route path="/create-project" element={<CreateProject />} />
-          <Route path="/project/:id" element={<ProjectDetail />} />
+          <Route path="/myproject/:id" element={<ProjectDetail />} />
           <Route path="/myproject" element={<MyProject />} />
         </Routes>
       </Layout>

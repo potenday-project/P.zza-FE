@@ -1,0 +1,96 @@
+@import '../../theme.scss';
+
+.project-header {
+  background-color: $delay;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+}
+.icn-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 22px;
+}
+
+.title-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 9px 16px;
+  gap: 8px;
+  color: white;
+
+  .pj-title {
+    @include Title3;
+  }
+
+  span {
+    background: $positive;
+    width: fit-content;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 4px;
+    font-size: 10px;
+    font-size: 10px;
+  }
+}
+
+.pj-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px 8px;
+  color: white;
+  @include Button2;
+
+  .item {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding-bottom: 4px;
+  }
+}
+
+.position-container {
+  span {
+    background: white;
+    color: $gray_700;
+    border: 1px solid $gray_50;
+    border-radius: 8px;
+  }
+}
+
+.detail-section {
+  background: $gray_200;
+  border-radius: 8px;
+  height: fit-content;
+  margin: 16px;
+  width: calc(100% - 32px);
+  .talk-box {
+    text-align: center;
+    align-items: center;
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+  .detail-content {
+    padding: 16px;
+    @include Body2;
+    color: $gray_800;
+  }
+}
+
+.talk {
+  background: rgb(255, 255, 255);
+  width: fit-content;
+  white-space: normal;
+  padding: 10px 18px;
+  border-radius: 8px;
+  @include Button2;
+}
