@@ -97,6 +97,9 @@ export function CreateProject() {
         onClick={() => {
           setValueStep(valueStep + 1);
           setIsClick(true);
+          {
+            valueStep === 5 && navigate('../myproject/:id');
+          }
         }}
       >
         {valueStep === 5 ? '홈으로' : '다음'}

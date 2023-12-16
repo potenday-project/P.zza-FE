@@ -26,7 +26,7 @@ const Header = ({ title, ...rest }) => {
   };
   return (
     <header>
-      <button onClick={goBackHandler}>
+      <button onClick={rest.onClick ? rest.onClick : goBackHandler}>
         <img src={Backbtn} alt="뒤로가기" />
       </button>
       <h1>{title}</h1>

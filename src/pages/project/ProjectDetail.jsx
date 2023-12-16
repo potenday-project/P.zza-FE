@@ -8,10 +8,11 @@ import { PROJECT_STEPS } from '../../constant/projectSteps';
 import './ProjectDetail.scss';
 import { Button } from '../../components/button/Button';
 import { getProjectDetail, getMyProjectProgress } from '../../api/project';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const ProjectDetail = () => {
   const param = useParams();
+  const navigate = useNavigate();
   const [projectData, setProjectData] = useState({});
   const [myProjectProgress, setMyProjectProgress] = useState({});
   const [selectedStep, setSelectedStep] = useState(1);
@@ -51,10 +52,11 @@ const ProjectDetail = () => {
       <Header
         title={projectData.project_name}
         useType="project"
+        onClick={() => navigate('../mainpage')}
         projectUrl={myProjectProgress.chat_url}
       />
       <article>
-        <div className="project_banner">
+        <div className="detail-banner ">
           <img src={pzza} alt="피자로고" />
           <p>프로젝트 완주까지 으쌰으쌰</p>
           <p>팀원들과 다 함께 열심히 달려요!</p>
@@ -67,9 +69,9 @@ const ProjectDetail = () => {
                 data-id={step.step - 1}
                 onClick={(e) => selectProjectStep(e)}
               >
-                <div className="step_box">{step.step}</div>
+                <img src={step.src} className="step_box" />
                 <div className="step_text">
-                  <p>Step {idx + 1}</p>
+                  <p>{idx + 1}일차</p>
                 </div>
               </li>
             ))}

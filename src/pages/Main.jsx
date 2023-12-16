@@ -112,7 +112,7 @@ export function Main() {
 }
 
 function AddProject() {
-  const navigate = use진Navigate();
+  const navigate = useNavigate();
   const [isClick, setIsClick] = useState(false);
   return (
     <div className="add-container" onClick={() => navigate('../create-topic')}>
