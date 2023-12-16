@@ -1,14 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../button/Button';
 import Backbtn from '../../assets/icons/ic_back_arrow.svg';
 import DotMenu from '../../assets/icons/ic_dot_menu.svg';
 import './Header.scss';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ title, ...rest }) => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const goBackHandler = () => {
-    window.history.back();
+    if (rest.valueStep === undefined) {
+      window.history.back();
+    } else {
+      rest.onChange(rest.valueStep - 1);
+      console.log(rest.valueStep);
+    }
   };
+
+  useEffect(() => {
+    if (rest.valueStep === 0) navigate('../mainpage');
+  });
 
   const dropMenuHandler = () => {
     setOpen(!open);

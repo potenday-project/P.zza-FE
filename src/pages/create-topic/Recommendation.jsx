@@ -21,9 +21,7 @@ export function Recommendation() {
   };
   return (
     <>
-      <TopNav setValueStep={setValue} step={value}>
-        프로젝트 주제
-      </TopNav>
+      <Header title="프로젝트 주제"></Header>
       <div className="topic-container">{render()}</div>
       <div className="button-container">
         <Button

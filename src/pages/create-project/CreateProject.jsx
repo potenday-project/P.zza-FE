@@ -84,10 +84,13 @@ export function CreateProject() {
     }
   };
 
-  if (valueStep === 5) navigate('../mainpage');
   return (
     <>
-      <Header title="프로젝트 생성"></Header>
+      <Header
+        title="프로젝트 생성"
+        valueStep={valueStep}
+        onChange={(value) => setValueStep(value)}
+      ></Header>
       <div className="topic-container">{renderContent()}</div>
       <Button
         className={`button ${isClick ? 'clicked' : ''}`}

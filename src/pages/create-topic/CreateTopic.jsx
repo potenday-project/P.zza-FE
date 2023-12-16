@@ -10,7 +10,7 @@ export function CreateTopic() {
   const navigate = useNavigate();
   return (
     <>
-      <TopNav>프로젝트 주제</TopNav>
+      <Header title="프로젝트 주제"></Header>
       <div className="topic-bg">
         <div className="topic-title">
           <h3>프로젝트 주제를 선정하셨나요?</h3>
