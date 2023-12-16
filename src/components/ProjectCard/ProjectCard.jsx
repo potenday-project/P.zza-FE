@@ -7,7 +7,13 @@ export function ProjectCard({ id, status, name, desc, mem }) {
     <div className="card-container">
       <div class="elements">
         <div className="pj-header">
-          <span>{status}</span>
+          <span
+            className={`${status === '완료' && 'done'} ${
+              status === '중단' && 'stop'
+            }`}
+          >
+            {status}
+          </span>
           <div className="pj-title">{name} </div>
         </div>
         <p className="pj-desc">{desc}</p>
