@@ -5,17 +5,28 @@ import { Input } from '../../../components/input/Input';
 import { DropBox } from '../../../components/dropbox/DropBox';
 import Modal from '../../../components/modal/Modal';
 
-const INITIAL = {
-  role: '선택',
-  portfolio_url: '',
-};
-
-function BasicInfoPage({ value }) {
+function BasicInfoPage({
+  value,
+  role_name,
+  portfolio_name,
+  role,
+  portfolio,
+  onRoleChange,
+  onPortfolioChange,
+}) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [values, setValues] = useState(INITIAL);
+  const [value_role, setValueRole] = useState(role);
+  const [value_portfolio, setValuePortfolio] = useState(portfolio);
+
   const handleChange = (name, value) => {
-    setValues((prev) => ({ ...prev, [name]: value }));
-    // console.log(values);
+    if (name == role_name) {
+      setValueRole(value);
+      onRoleChange(name, value);
+    }
+    if (name == portfolio_name) {
+      setValuePortfolio(value);
+      onPortfolioChange(name, value);
+    }
   };
   return (
     <div>
@@ -24,7 +35,7 @@ function BasicInfoPage({ value }) {
         {modalOpen && (
           <Modal
             step="1"
-            value={values.role}
+            value={value}
             modalstate={modalOpen}
             onJdChange={handleChange}
           ></Modal>
@@ -32,7 +43,8 @@ function BasicInfoPage({ value }) {
 
         <DropBox
           name="role"
-          value={values.role}
+          value={value_role}
+          placeholder={'선택'}
           onChange={handleChange}
           onClick={() => setModalOpen(!modalOpen)}
         >
@@ -40,7 +52,7 @@ function BasicInfoPage({ value }) {
         </DropBox>
         <Input
           name="portfolio_url"
-          value={values.portfolio_url}
+          value={portfolio}
           placeholder="url을 입력하세요"
           onChange={handleChange}
         >

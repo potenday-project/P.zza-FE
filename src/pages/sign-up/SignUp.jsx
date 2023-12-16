@@ -1,34 +1,77 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Progress } from '../../components/progress/Progress';
-
 import { Button } from '../../components/button/Button';
-import './SignUp.scss';
-
 import BasicInfoPage from './step1/Step1';
 import SkillSelectionPage from './step2/Step2';
 import ExperienceInputPage from './step3/Step3';
 import CompletionPage from './step4/Step4';
-import { useNavigate } from 'react-router-dom';
+import './SignUp.scss';
 
-const SignUp = () => {
+const USER_INITAIL = {
+  role: '',
+  portfolio_url: '',
+  skills: [],
+  experience: '',
+};
+
+function SignUp() {
+  const navigate = useNavigate();
   const [value, setValue] = useState(1);
   const [isClick, setIsClick] = useState(false);
-
-  const navigate = useNavigate();
-
+  const [userValue, setUserValue] = useState(USER_INITAIL);
   const handleProgressClick = (newValue) => {
     setValue(newValue);
-    // 다른 작업을 수행하고 싶다면 여기에 추가
   };
+
+  const handleChange = (name, value) => {
+    const newValues = userValue;
+    newValues[name] = value;
+    setUserValue(newValues);
+    // console.log(newValues);
+  };
+
+  if (value === 5) {
+    const one = localStorage.getItem('user');
+    console.log(one);
+  }
+
+  useEffect(() => {
+    localStorage.setItem('user', []);
+  }, []);
 
   const renderContent = () => {
     switch (value) {
       case 1:
-        return <BasicInfoPage value={value} />;
+        return (
+          <BasicInfoPage
+            value={value}
+            role_name="role"
+            portfolio_name="portfolio_url"
+            role={userValue.role}
+            portfolio={userValue.portfolio_url}
+            onRoleChange={handleChange}
+            onPortfolioChange={handleChange}
+          />
+        );
       case 2:
-        return <SkillSelectionPage value={value} />;
+        return (
+          <SkillSelectionPage
+            value={value}
+            name="skills"
+            skills={userValue.skills}
+            onChange={handleChange}
+          />
+        );
       case 3:
-        return <ExperienceInputPage value={value} />;
+        return (
+          <ExperienceInputPage
+            value={value}
+            name="experience"
+            experience={userValue.experience}
+            onChange={handleChange}
+          />
+        );
       case 4:
         return <CompletionPage />;
       case 5:
@@ -37,6 +80,7 @@ const SignUp = () => {
         return null;
     }
   };
+
   return (
     <div className="sign-up-container">
       {value < 4 && (
@@ -49,6 +93,10 @@ const SignUp = () => {
           onClick={() => {
             setValue(value + 1);
             setIsClick(true);
+            if (value === 5) {
+              let user = JSON.parse(localStorage.getItem('user'));
+              console.log(user);
+            }
           }}
         >
           {value === 4 ? '홈으로' : '다음'}
@@ -56,6 +104,6 @@ const SignUp = () => {
       </div>
     </div>
   );
-};
+}
 
 export default SignUp;

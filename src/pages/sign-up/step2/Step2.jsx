@@ -1,15 +1,23 @@
 // SkillSelectionPage.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Step } from '../../../components/step/Step';
 import { SkillChip } from '../../../components/skill-chip/SkillChip';
 
-function SkillSelectionPage({ value }) {
-  const [skills, setSkills] = useState();
+function SkillSelectionPage({ value, name, skills, onChange }) {
+  const [skills_value, setSkillsValue] = useState(skills);
+  const handleSkillsChange = (name, value) => {
+    setSkillsValue(value);
+    onChange(name, skills_value);
+  };
+
   return (
     <div>
       <Step value={value}> 보유하신 스킬을 선택해주세요</Step>
       <div className="infobox">
-        <SkillChip setSkills={setSkills}></SkillChip>
+        <SkillChip
+          setSkills={setSkillsValue}
+          onChange={handleSkillsChange}
+        ></SkillChip>
       </div>
     </div>
   );

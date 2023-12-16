@@ -76,14 +76,11 @@ function Modal({
                   key={i}
                   className="exp"
                   onClick={() => {
-                    if (!optionClick[i]) {
-                      const newClick = [...optionClick];
-                      newClick.fill(false); // 모든 항목을 초기화
-                      newClick[i] = true; // 클릭한 항목만 선택
-                      setOptionClick(newClick);
-                      setExpValue(item);
-                      onexpChange('experience', item);
-                    }
+                    const newClick = [...optionClick];
+                    newClick[i] = !newClick[i];
+                    setOptionClick(newClick);
+                    setExpValue(item);
+                    onexpChange('experience', item);
                   }}
                 >
                   {item}

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './SkillChip.scss';
 
 const skillship = [
@@ -24,11 +24,16 @@ const skillship = [
   'Spring Boot',
 ];
 
-export function SkillChip({ setSkills }) {
+export function SkillChip({ setSkills, onChange }) {
   const [clicked, setClicked] = useState(Array(skillship.length).fill(false));
   const [skills, setLocalSkills] = useState([]);
 
-  console.log(skills);
+  useEffect(() => {
+    // useEffect 내에서 setSkills와 onChange 호출
+    setSkills(skills);
+    onChange('skills', skills);
+    console.log(skills);
+  }, [skills, setSkills, onChange]);
 
   return (
     <div className="skill-container">
@@ -37,18 +42,17 @@ export function SkillChip({ setSkills }) {
           key={i}
           className={`skill-item ${clicked[i] ? 'clicked' : ''}`}
           onClick={() => {
-            const newChips = [...clicked];
-            newChips[i] = !newChips[i];
-            setClicked(newChips);
+            const newClicked = [...clicked];
+            newClicked[i] = !newClicked[i];
+            setClicked(newClicked);
 
-            if (newChips[i]) {
+            if (newClicked[i]) {
               setLocalSkills((prevSkills) => [...prevSkills, item]);
             } else {
               setLocalSkills((prevSkills) =>
                 prevSkills.filter((skill) => skill !== item)
               );
             }
-            setSkills(skills);
           }}
         >
           {item}
