@@ -10,6 +10,7 @@ import { CreateProject } from './pages/create-project/CreateProject';
 import { CreateTopic } from './pages/create-topic/CreateTopic';
 import { TopicKeyword } from './pages/create-topic/TopicKeyword';
 import { Recommendation } from './pages/create-topic/Recommendation';
+import { Main } from './pages/Main';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/sign-up-1" element={<SignUp />} />
-          <Route path="/mainpage" element={<div>mainpage</div>} />
+          <Route path="/mainpage" element={<Main></Main>} />
 
           <Route path="/create-topic" element={<CreateTopic></CreateTopic>} />
           <Route path="/create-topic/keyword" element={<Recommendation />} />

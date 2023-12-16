@@ -1,0 +1,49 @@
+@import './../../theme.scss';
+
+.card-container {
+  width: 100%;
+  padding: 0 16px;
+  margin-bottom: 2px;
+  background-color: white;
+}
+
+.pj-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 8px;
+  gap: 8px;
+
+  span {
+    background: $positive;
+    padding: 4px 8px;
+    color: white;
+    border-radius: 4px;
+    font-size: 10px;
+  }
+  .pj-title {
+    @include Subheadline;
+  }
+}
+
+.card-container > p {
+  color: $gray_500;
+  @include Body2;
+}
+
+.position {
+  padding: 6px 8px;
+  border: 1px solid $gray_700;
+  border-radius: 8px;
+  @include Caption1;
+}
+
+.position-container {
+  display: flex;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.elements {
+  padding: 16px 0;
+}
