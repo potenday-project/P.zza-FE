@@ -8,11 +8,13 @@ import thirty from '../../../../src/images/thirtyday.svg';
 import activethirty from '../../../../src/images/active-thirtyday.svg';
 
 export function SelectGuide({ step, name, value, onChange }) {
-  const [dayOption, setDayOption] = useState(value);
-  const [btnClick, setBtnClick] = useState([false, false]);
   const [active, setActive] = useState([false, false]);
-  const handleDayChange = (val) => {
-    onChange(name, val);
+
+  const handleSelect = (selectedIndex) => {
+    const newActive = active.map((_, idx) => idx === selectedIndex);
+    setActive(newActive);
+    const selectedValue = selectedIndex === 0 ? 10 : 30;
+    onChange(name, selectedValue);
   };
 
   return (
@@ -20,27 +22,18 @@ export function SelectGuide({ step, name, value, onChange }) {
       <Step value={step}>프로젝트 기간 및 가이드 선택</Step>
       <div className="frame">
         <Option
-          onSelect={() => handleDayChange(10)}
+          onSelect={() => handleSelect(0)} //콜백형태-> 이벤트가 실제 발생했을 떄만 함수 호출
           src={active[0] ? activeten : ten}
           active={active[0]}
           name={name}
-          onClick={() => {
-            const newActive = [...active];
-            setActive([!newActive[0], newActive[0]]);
-          }}
         >
           Day-10
         </Option>
         <Option
-          onSelect={() => handleDayChange(30)}
+          onSelect={() => handleSelect(1)}
           src={active[1] ? activethirty : thirty}
           active={active[1]}
           name={name}
-          className={`select-btn ${btnClick[1] ? 'btn-clicked' : ''}`}
-          onClick={() => {
-            const newActive = [...active];
-            setActive([newActive[1], !newActive[1]]);
-          }}
         >
           Day-30
         </Option>
