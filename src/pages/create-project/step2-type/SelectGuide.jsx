@@ -13,6 +13,7 @@ export function SelectGuide({ step, name, value, onChange }) {
   const handleSelect = (selectedIndex) => {
     const newActive = active.map((_, idx) => idx === selectedIndex);
     setActive(newActive);
+
     const selectedValue = selectedIndex === 0 ? 10 : 30;
     onChange(name, selectedValue);
   };

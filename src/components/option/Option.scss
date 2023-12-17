@@ -15,8 +15,19 @@
 
   &.clicked {
     border: 3px solid $primary;
+  }
+  &.dev {
     background: $orange_50;
     color: $primary;
+  }
+
+  &.pm {
+    background: #ffa6a6;
+    color: #ff3e3e;
+  }
+  &.design {
+    background: #cce7ff;
+    color: #53acff;
   }
 }
 

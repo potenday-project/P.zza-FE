@@ -13,25 +13,40 @@ export function SelectMem({ step, name, value, onChange }) {
   const [teams, setTeams] = useState(value);
   const [active, setActive] = useState([false, false, false, false]);
 
-  const handleTeamChange = (val) => {
-    const newTeams = [...teams];
-    newTeams.push({
-      role: val,
-      recruitment_target: 1,
-    });
-    setTeams(newTeams);
-    onChange(name, newTeams);
+  const teamRoles = [' BE개발', 'FE개발', '기획', '디자인'];
+
+  const handleTeamChange = (index) => {
     const newActive = [...active];
-    newActive;
+    newActive[index] = !newActive[index]; // 현재 인덱스의 상태를 토글
+    setActive(newActive);
+
+    if (newActive[index]) {
+      // 선택된 경우, 팀 배열에 추가
+      setTeams([
+        ...teams,
+        {
+          role: teamRoles[index],
+          recruitment_target: 1,
+        },
+      ]);
+    } else {
+      // 선택 해제된 경우, 팀 배열에서 제거
+      setTeams(teams.filter((team) => team.role !== teamRoles[index]));
+    }
+
+    onChange(name, teams);
   };
+
   console.log(teams);
+
   return (
     <div>
       <Step value={step}>어떤 팀원과 함께하고 싶나요?</Step>
       <div className="mem-frame">
         <div className="row">
           <Option
-            onSelect={handleTeamChange}
+            className="dev"
+            onSelect={() => handleTeamChange(0)}
             src={active[0] ? active_dev : dev}
             active={active[0]}
             name={name}
@@ -39,7 +54,8 @@ export function SelectMem({ step, name, value, onChange }) {
             BE개발
           </Option>
           <Option
-            onSelect={handleTeamChange}
+            className="dev"
+            onSelect={() => handleTeamChange(1)}
             src={active[1] ? active_dev : dev}
             active={active[1]}
             name={name}
@@ -49,7 +65,8 @@ export function SelectMem({ step, name, value, onChange }) {
         </div>
         <div className="row">
           <Option
-            onSelect={handleTeamChange}
+            className="pm"
+            onSelect={() => handleTeamChange(2)}
             src={active[2] ? active_pm : pm}
             active={active[2]}
             name={name}
@@ -57,7 +74,8 @@ export function SelectMem({ step, name, value, onChange }) {
             기획
           </Option>
           <Option
-            onSelect={handleTeamChange}
+            className="design"
+            onSelect={() => handleTeamChange(3)}
             src={active[3] ? active_design : design}
             active={active[3]}
             name={name}
