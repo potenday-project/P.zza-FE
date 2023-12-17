@@ -98,7 +98,14 @@ const ProjectDetail = () => {
             산출물 업로드
           </h2>
           <input type="file" />
-          <Button className="common">제출하기</Button>
+          <button
+            className="common"
+            onClick={() => {
+              if (Number(selectedStep) === 9) navigate('./finish');
+            }}
+          >
+            제출하기
+          </button>
         </div>
       </article>
       <article>
@@ -115,8 +122,8 @@ const ProjectDetail = () => {
                 <p>포폴:</p>
                 <p>한줄포부:</p>
               </div>
-              <Button className="common">우리 함께해요!</Button>
-              <Button className="common_wh">아쉽지만 다음기회에...</Button>
+              <button className="common">우리 함께해요!</button>
+              <button className="common_wh">아쉽지만 다음기회에...</button>
             </li>
           </ul>
         </div>

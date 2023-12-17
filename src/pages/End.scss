@@ -1,0 +1,16 @@
+@import './../theme.scss';
+
+.end-bg {
+  background: linear-gradient(to bottom, #2f5dff, #97cdff);
+  height: 100vh;
+  padding: 16px;
+
+  .sub-title {
+    @include Title2;
+    color: white;
+  }
+}
+
+.img-container {
+  text-align: center;
+}

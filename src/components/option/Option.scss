@@ -14,6 +14,8 @@
   color: $gray_500;
 
   &.clicked {
+    background: $orange_50;
+    color: $primary;
     border: 3px solid $primary;
   }
   &.dev {

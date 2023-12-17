@@ -1,5 +1,5 @@
 import { TopNav } from '../../components/TopNav/TopNav';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '../../components/button/Button';
 
 import { useNavigate } from 'react-router-dom';
@@ -25,11 +25,13 @@ const INITAIL = {
 };
 
 export function CreateProject() {
+  const navigate = useNavigate();
   const [valueStep, setValueStep] = useState(1);
   const [isClick, setIsClick] = useState(false);
   const [values, setValues] = useState(INITAIL);
 
-  const navigate = useNavigate();
+  console.log(values);
+  console.log(valueStep);
 
   const handleChange = (name, val) => {
     const newValues = values;
@@ -37,6 +39,13 @@ export function CreateProject() {
     setValues(newValues);
     console.log(values);
   };
+
+  useEffect(() => {
+    localStorage.setItem('project', []);
+    if (valueStep === 5) {
+      localStorage.setItem('project', JSON.stringify(values));
+    }
+  }, [valueStep, values]);
 
   const renderContent = () => {
     switch (valueStep) {
@@ -80,6 +89,8 @@ export function CreateProject() {
         );
       case 5:
         return <CreateDone />;
+      case 6:
+        navigate('../mainpage');
       default:
         return null;
     }
@@ -98,9 +109,6 @@ export function CreateProject() {
         onClick={() => {
           setValueStep(valueStep + 1);
           setIsClick(true);
-          {
-            valueStep === 5 && navigate('../myproject/:id');
-          }
         }}
       >
         {valueStep === 5 ? '홈으로' : '다음'}

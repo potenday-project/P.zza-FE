@@ -8,6 +8,7 @@ import {
   getMyProjectStoped,
 } from '../../api/project';
 import './MyProject.scss';
+import { useNavigate } from 'react-router-dom';
 
 const MyProject = () => {
   const [inProgress, setInProgress] = useState([]);
@@ -15,6 +16,7 @@ const MyProject = () => {
   const [complete, setComplete] = useState([]);
   const [rejected, setRejected] = useState([]);
   const [stoped, setStoped] = useState([]);
+  const navigate = useNavigate();
 
   const projectStates = {
     inProgress,
@@ -85,7 +87,10 @@ const MyProject = () => {
           {MY_PROJECT_SUBJECTS.map((subject) => {
             const projectCount = projectStates[subject.stateKey]?.length || 0;
             return (
-              <li key={subject.name}>
+              <li
+                key={subject.name}
+                onClick={() => navigate('../myproject/:id')}
+              >
                 <p>{projectCount}</p>
                 <p>{subject.name}</p>
               </li>
