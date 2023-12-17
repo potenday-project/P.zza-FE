@@ -7,9 +7,19 @@ import Modal from '../../../components/modal/Modal';
 function ExperienceInputPage({ value, name, experience, onChange }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [value_exp, setValueExp] = useState(experience);
-  const handleChange = (name, value) => {
-    setValueExp(value);
-    onChange(name, value);
+  const handleChange = (name, val) => {
+    setValueExp(val);
+    if (val === '경력없음') {
+      onChange(name, 0);
+    } else if (val === '3년 미만') {
+      onChange(name, 3);
+    } else if (val === '5년 미만') {
+      onChange(name, 5);
+    } else if (val === '5년 미만') {
+      onChange(name, 5);
+    } else {
+      onChange(name, 8);
+    }
   };
 
   return (

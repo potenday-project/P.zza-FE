@@ -1,6 +1,17 @@
 import axios from 'axios';
 import { instance } from './instance';
 
+// 회원가입 함수
+export const UserSignUp = async (userData) => {
+  try {
+    const response = await instance.post('/user/signup', userData);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 // 전체 프로젝트 조회
 export const getAllProjects = async ({ offset, id }) => {
   try {

@@ -5,17 +5,20 @@ p {
   color: $gray_600;
   margin: 8px 0;
 }
+.recommend-box {
+  height: 52px;
+}
 
 .keyword-title {
-  @include Title4;
+  @include Button;
   padding: 40px 0 8px;
 }
 
 .keyword-box {
-  margin-top: 56px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .topic-container h3 {

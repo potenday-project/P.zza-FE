@@ -3,8 +3,6 @@
 .white-bg {
   height: fit-content;
   border-radius: 8px;
-  font-family: 'Pretendard Variable';
-  font-style: normal;
   position: absolute;
   background-color: #ffffff;
   position: fixed;
@@ -56,6 +54,15 @@
   font-size: 15px;
   color: $gray_500;
   cursor: pointer;
+
+  p {
+    font-weight: 300;
+  }
+}
+.clicked p {
+  background: $primary;
+  color: #ffffff;
+  font-weight: 500;
 }
 
 .modal-button {
@@ -73,19 +80,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: 1; /* Place the black background above other content */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
   display: none;
 }
 
 .show-modal {
   display: block;
-}
-
-.clicked {
-  background: $primary;
-  color: #ffffff;
-  font-weight: 500;
 }
 
 .exp {
@@ -100,4 +101,8 @@
   flex-direction: column;
   gap: 8px;
   font-weight: 500;
+}
+
+.items {
+  width: 60px;
 }

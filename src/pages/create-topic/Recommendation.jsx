@@ -25,8 +25,8 @@ export function Recommendation() {
       <Header title="프로젝트 주제"></Header>
       <div className="topic-container">{render()}</div>
       <div className="button-container">
-        <Button
-          className={`half-button ${isClick ? 'clicked' : ''}`}
+        <button
+          className={`half-btn ${isClick ? 'clicked' : ''}`}
           onClick={() => {
             navigate(value == 1 && '../create-topic');
             setValue(value - 1);
@@ -34,9 +34,9 @@ export function Recommendation() {
           }}
         >
           이전
-        </Button>
-        <Button
-          className={`half-button ${isClick ? 'clicked' : ''}`}
+        </button>
+        <button
+          className={`half-btn  ${isClick ? 'clicked' : ''}`}
           onClick={() => {
             setIsClick(true);
             setValue(value + 1);
@@ -44,7 +44,7 @@ export function Recommendation() {
           }}
         >
           다음
-        </Button>
+        </button>
       </div>
     </>
   );
@@ -54,7 +54,7 @@ function OutPut() {
   return (
     <>
       <div className="keyword-title">
-        00님을 위한
+        <span style={{ color: '#FF570E' }}>이지원</span> 님을 위한
         <br />
         추천 프로젝트 주제입니다
       </div>
@@ -62,13 +62,13 @@ function OutPut() {
       <div className="center-box">
         <div className="recommend-box">
           <div className="recommend">
-            <p>d</p>
+            <p>여행 일정 생성 서비스 </p>
           </div>
           <div className="recommend">
-            <p>d</p>
+            <p>여행 경비 계산 서비스</p>
           </div>
           <div className="recommend">
-            <p>d</p>
+            <p>여행 장소 공유 서비스</p>
           </div>
         </div>
         <img src={recommend_charac} className="recommend_charac"></img>

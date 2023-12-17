@@ -4,7 +4,7 @@ import './ProjectCard.scss';
 export function ProjectCard({ id, status, name, desc, mem }) {
   return (
     <div className="card-container">
-      <div class="elements">
+      <div className="elements">
         <div className="pj-header">
           <span
             className={`${status === '완료' && 'done'} ${
@@ -17,9 +17,9 @@ export function ProjectCard({ id, status, name, desc, mem }) {
         </div>
         <p className="pj-desc">{desc}</p>
         <div className="position-container">
-          {mem.map((each) => (
+          {mem.map((each, i) => (
             <span
-              key={id}
+              key={i}
               className={`position ${
                 each.participants === each.recruitment_target && 'over'
               }`}

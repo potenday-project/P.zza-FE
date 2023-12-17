@@ -42,3 +42,29 @@
     color: #ffffff;
   }
 }
+
+.button-container {
+  position: fixed;
+  bottom: 5px;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  align-items: center;
+  color: white;
+  padding: 24px 16px;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  .half-button {
+    width: 100%;
+    max-width: 328px;
+    height: 56px;
+    border-radius: 8px;
+    color: white;
+    background: $primary;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    margin: 18px auto;
+  }
+}

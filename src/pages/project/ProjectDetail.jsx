@@ -9,11 +9,12 @@ import './ProjectDetail.scss';
 import { Button } from '../../components/button/Button';
 import { getProjectDetail, getMyProjectProgress } from '../../api/project';
 import { useNavigate, useParams } from 'react-router-dom';
+import data from '../../../src/project.json';
 
 const ProjectDetail = () => {
   const param = useParams();
   const navigate = useNavigate();
-  const [projectData, setProjectData] = useState({});
+  const [projectData, setProjectData] = useState(data);
   const [myProjectProgress, setMyProjectProgress] = useState({});
   const [selectedStep, setSelectedStep] = useState(1);
 
@@ -50,7 +51,7 @@ const ProjectDetail = () => {
   return (
     <div>
       <Header
-        title={projectData.project_name}
+        title={projectData[0].project_name}
         useType="project"
         onClick={() => navigate('../mainpage')}
         projectUrl={myProjectProgress.chat_url}

@@ -83,7 +83,7 @@ function Modal({
                     onexpChange('experience', item);
                   }}
                 >
-                  {item}
+                  <div className="items">{item}</div>
                   <img src={optionClick[i] ? click : unclick} />
                 </div>
               ))}
