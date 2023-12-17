@@ -2,7 +2,7 @@
 
 .card-container {
   width: 100%;
-  padding: 0 16px;
+  padding: 16px 16px;
   margin-bottom: 2px;
   background-color: white;
 }
@@ -11,7 +11,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  padding-top: 8px;
+  padding: 8px 0;
   gap: 8px;
 
   span {

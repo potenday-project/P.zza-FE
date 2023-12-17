@@ -11,9 +11,11 @@ const Start = () => {
       <div className="sub-title">project hazza</div>
       <img src={pzza} className="pzza"></img>
       <img src={character} className="character"></img>
-      <button className="kakao-btn" onClick={() => navigate('/sign-up-1')}>
-        <img src={kakao}></img>
-      </button>
+      <div className="kakao-btn-container">
+        <button className="kakao-btn" onClick={() => navigate('/sign-up-1')}>
+          <img src={kakao}></img>
+        </button>
+      </div>
     </div>
   );
 };
