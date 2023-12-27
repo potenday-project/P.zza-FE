@@ -24,7 +24,7 @@ function SignUp() {
   const [isError, setIsError] = useState(null);
   const [userValue, setUserValue] = useState(USER_INITAIL);
 
-  console.log(userValue);
+  //console.log(userValue);
 
   const handleProgressClick = (newValue) => {
     setValue(newValue);
@@ -38,6 +38,7 @@ function SignUp() {
 
   useEffect(() => {
     let isMounted = true;
+    localStorage.setItem('user', []);
 
     const handleSignUp = async () => {
       try {
@@ -61,6 +62,7 @@ function SignUp() {
     };
 
     if (value === 5) {
+      localStorage.setItem('user', JSON.stringify(userValue));
       handleSignUp();
     }
 

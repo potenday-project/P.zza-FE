@@ -5,11 +5,30 @@ import { instance } from './instance';
 export const UserSignUp = async (userData) => {
   try {
     const response = await instance.post('/user/signup', userData);
+    const ACCESS_KEY = response.headers.get('ACCESS_KEY');
+    localStorage.setItem('ACCESS_KEY', JSON.stringify(ACCESS_KEY));
     return response.data;
   } catch (error) {
     console.error(error);
     throw error;
   }
+};
+
+// 로그인 함수
+export const userLogin = async (access_key) => {
+  // Axios 인스턴스를 사용하여 로그인 요청 전송
+  // Request 헤더에 access_key 포함
+  const response = await instance.post(
+    '/user/login',
+    {},
+    {
+      headers: {
+        Access_Key: access_key,
+      },
+    }
+  );
+  // 응답 처리
+  console.log(response);
 };
 
 // 전체 프로젝트 조회
