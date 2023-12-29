@@ -24,8 +24,6 @@ function SignUp() {
   const [isError, setIsError] = useState(null);
   const [userValue, setUserValue] = useState(USER_INITAIL);
 
-  //console.log(userValue);
-
   const handleProgressClick = (newValue) => {
     setValue(newValue);
   };

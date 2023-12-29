@@ -1,7 +1,5 @@
-import { TopNav } from '../../components/TopNav/TopNav';
 import { useEffect, useState } from 'react';
 import { Button } from '../../components/button/Button';
-
 import { useNavigate } from 'react-router-dom';
 import { CreateTitle } from './step1-title/CreateTitle';
 import { SelectGuide } from './step2-type/SelectGuide';
@@ -10,6 +8,7 @@ import { ExplainProject } from './step4-intro/ExplainProject';
 import { CreateDone } from './step5-finish/CreateDone';
 import Header from '../../components/elements/Header';
 import './CreateProject.scss';
+import { ProjectCreation } from '../../api/project';
 
 const INITAIL = {
   project_name: '',
@@ -30,20 +29,35 @@ export function CreateProject() {
   const [isClick, setIsClick] = useState(false);
   const [values, setValues] = useState(INITAIL);
 
-  console.log(values);
-  console.log(valueStep);
-
   const handleChange = (name, val) => {
     const newValues = values;
     newValues[name] = val;
     setValues(newValues);
-    console.log(values);
   };
 
   useEffect(() => {
     localStorage.setItem('project', []);
+    console.log(valueStep);
+
+    const handleCreateProject = async () => {
+      const storedAccessKey = localStorage.getItem('ACCESS_KEY');
+      if (storedAccessKey) {
+        const access_key = JSON.parse(storedAccessKey);
+        try {
+          console.log(values);
+          const result = await ProjectCreation(values, access_key); // 회원가입 API를 호출하는 함수
+          if (result) {
+            console.log('프로젝트 등록 성공:', result);
+            // navigate('../mainpage');
+          }
+        } catch (error) {
+          console.error('프로젝트 등록 중 오류 발생:', error);
+        }
+      }
+    };
     if (valueStep === 5) {
       localStorage.setItem('project', JSON.stringify(values));
+      handleCreateProject();
     }
   }, [valueStep, values]);
 
@@ -89,8 +103,7 @@ export function CreateProject() {
         );
       case 5:
         return <CreateDone />;
-      case 6:
-        navigate('../mainpage');
+
       default:
         return null;
     }

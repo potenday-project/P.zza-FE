@@ -16,7 +16,6 @@ export function Main() {
   const [isClick, setIsClick] = useState([true, true, true, true]);
   const [status, setStatus] = useState();
   const [data, setData] = useState([]);
-  console.log(data);
 
   const filteredData = data.filter((item) => {
     if (isClick[0]) return true; // '전체'가 선택된 경우 모든 데이터 표시

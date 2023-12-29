@@ -55,6 +55,16 @@ export const getAllProjects = async ({ offset, id }) => {
   }
 };
 
+// 프로젝트 등록
+export const ProjectCreation = async (data, access_key) => {
+  const response = await instance.post('/project', data, {
+    headers: {
+      ACCESS_KEY: access_key, // 헤더는 이곳에
+    },
+  });
+  console.log(response.data);
+};
+
 // 프로젝트 상세페이지 조회
 export const getProjectDetail = async (projectId) => {
   try {
