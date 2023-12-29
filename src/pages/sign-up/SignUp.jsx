@@ -71,6 +71,9 @@ function SignUp() {
       case 3:
         setIsClick(userValue.experience); // experience가 입력되었는지 여부
         break;
+      case 4:
+        setIsClick(true); // experience가 입력되었는지 여부
+        break;
       default:
         setIsClick(false);
     }
@@ -147,6 +150,8 @@ function SignUp() {
               } else {
                 setValue(value + 1);
               }
+            } else {
+              setValue(value + 1);
             }
           }}
         >
