@@ -8,21 +8,46 @@ import stop from '../assets/icons/stop.svg';
 import './Main.scss';
 import { ProjectCard } from '../components/ProjectCard/ProjectCard';
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import data from '../project.json';
+import { useEffect, useState } from 'react';
+import { instance } from '../api/instance';
 
 export function Main() {
   const navigate = useNavigate();
   const [isClick, setIsClick] = useState([true, true, true, true]);
   const [status, setStatus] = useState();
+  const [data, setData] = useState([]);
 
   const filteredData = data.filter((item) => {
     if (isClick[0]) return true; // '전체'가 선택된 경우 모든 데이터 표시
     let filterCondition = false;
-    if (isClick[1] && item.project_status === '모집중') filterCondition = true;
-    if (isClick[2] && item.project_status === '완료') filterCondition = true;
-    if (isClick[3] && item.project_status === '중단') filterCondition = true;
+    if (isClick[1] && item.project_status === 'recruiting')
+      filterCondition = true;
+    if (isClick[2] && item.project_status === 'completion')
+      filterCondition = true;
+    if (isClick[3] && item.project_status === 'interruption')
+      filterCondition = true;
     return filterCondition;
+  });
+
+  useEffect(() => {
+    const access_key = JSON.parse(localStorage.getItem('ACCESS_KEY'));
+    const Datas = async () => {
+      try {
+        const response = await instance.get(`/projects?offset=20&status=전체`, {
+          headers: {
+            ACCESS_KEY: access_key,
+          },
+        });
+        // 응답 처리
+        setData(response.data);
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (access_key) {
+      Datas();
+    }
   });
 
   return (

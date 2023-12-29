@@ -6,11 +6,21 @@ export const UserSignUp = async (userData) => {
   try {
     const response = await instance.post('/user/signup', userData);
     const ACCESS_KEY = response.headers.get('ACCESS_KEY');
-    localStorage.setItem('ACCESS_KEY', JSON.stringify(ACCESS_KEY));
-    return response.data;
+
+    if (ACCESS_KEY) {
+      // 엑세스 키가 있으면 로컬 스토리지에 저장하고, true 반환
+      localStorage.setItem('ACCESS_KEY', JSON.stringify(ACCESS_KEY));
+      return { success: true };
+    } else {
+      // 엑세스 키가 없으면 false 반환
+      return {
+        success: false,
+        message: '회원가입 실패. 엑세스 키가 없습니다.',
+      };
+    }
   } catch (error) {
     console.error(error);
-    throw error;
+    return { success: false, message: error.message };
   }
 };
 
@@ -20,15 +30,15 @@ export const userLogin = async (access_key) => {
   // Request 헤더에 access_key 포함
   const response = await instance.post(
     '/user/login',
-    {},
+    {}, // 두 번째 인자로 빈 요청 본문
     {
       headers: {
-        Access_Key: access_key,
+        ACCESS_KEY: access_key, // 헤더는 이곳에
       },
     }
   );
   // 응답 처리
-  console.log(response);
+  console.log(response.data);
 };
 
 // 전체 프로젝트 조회
@@ -37,6 +47,7 @@ export const getAllProjects = async ({ offset, id }) => {
     const response = await instance.get(
       `/projects?offset=${offset}&status=${id}`
     );
+    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error(error);

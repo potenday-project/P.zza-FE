@@ -45,19 +45,15 @@ function SignUp() {
         setIsError(null);
         setIsLoading(true);
         const result = await UserSignUp(userValue); // 회원가입 API를 호출하는 함수
-        if (isMounted) {
+        if (result.success) {
           console.log('회원가입 성공:', result);
           navigate('../mainpage');
         }
       } catch (error) {
-        if (isMounted) {
-          setIsError(error);
-          console.error('회원가입 처리 중 오류 발생:', error);
-        }
+        setIsError(error);
+        console.error('회원가입 처리 중 오류 발생:', error);
       } finally {
-        if (isMounted) {
-          setIsLoading(false);
-        }
+        setIsLoading(false);
       }
     };
 
