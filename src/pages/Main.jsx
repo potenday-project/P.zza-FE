@@ -40,7 +40,6 @@ export function Main() {
         });
         // 응답 처리
         setData(response.data);
-        console.log(data);
       } catch (error) {
         console.log(error);
       }

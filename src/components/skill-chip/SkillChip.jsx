@@ -32,7 +32,6 @@ export function SkillChip({ setSkills, onChange }) {
     // useEffect 내에서 setSkills와 onChange 호출
     setSkills(skills);
     onChange('skills', skills);
-    console.log(skills);
   }, [skills, setSkills, onChange]);
 
   return (

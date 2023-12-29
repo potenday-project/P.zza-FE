@@ -31,13 +31,13 @@ function SignUp() {
   };
 
   const handleChange = (name, value) => {
-    const newValues = userValue;
-    newValues[name] = value;
-    setUserValue(newValues);
+    setUserValue((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
   };
 
   useEffect(() => {
-    let isMounted = true;
     localStorage.setItem('user', []);
 
     const handleSignUp = async () => {
@@ -61,11 +61,19 @@ function SignUp() {
       localStorage.setItem('user', JSON.stringify(userValue));
       handleSignUp();
     }
-
-    // 컴포넌트가 언마운트될 때 실행되는 정리 함수
-    return () => {
-      isMounted = false;
-    };
+    switch (value) {
+      case 1:
+        setIsClick(userValue.role); // role이 선택되었는지 여부
+        break;
+      case 2:
+        setIsClick(userValue.skills.length > 0); // skills가 하나 이상 선택되었는지 여부
+        break;
+      case 3:
+        setIsClick(userValue.experience); // experience가 입력되었는지 여부
+        break;
+      default:
+        setIsClick(false);
+    }
   }, [value, userValue]); // value와 userValue의 변화를 감지
 
   const renderContent = () => {
@@ -119,8 +127,27 @@ function SignUp() {
         <Button
           className={`button ${isClick ? 'clicked' : ''}`}
           onClick={() => {
-            setIsClick(true);
-            setValue(value + 1);
+            if (value === 1) {
+              if (!userValue.role) {
+                alert('직무를 선택하세요');
+              } else {
+                setValue(value + 1);
+              }
+            }
+            if (value === 2) {
+              if (userValue.skills.length === 0) {
+                alert('1개 이상 스킬을 선택해주세요');
+              } else {
+                setValue(value + 1);
+              }
+            }
+            if (value === 3) {
+              if (!userValue.experience) {
+                alert('경력을 입력하세요');
+              } else {
+                setValue(value + 1);
+              }
+            }
           }}
         >
           {value === 4 ? '홈으로' : '다음'}

@@ -18,11 +18,15 @@
     height: 56px;
     border-radius: 8px;
     color: white;
-    background: $primary;
+    background: gray;
     cursor: pointer;
     transition: background-color 0.3s ease;
     font-size: 16px;
     margin: 18px auto;
+  }
+  .button.clicked {
+    background-color: $primary;
+    color: #ffffff;
   }
 }
 .half-button {
@@ -35,9 +39,4 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   margin: 18px auto;
-}
-
-.button.clicked {
-  background-color: $primary;
-  color: #ffffff;
 }
