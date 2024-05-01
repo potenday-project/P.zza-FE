@@ -1,8 +1,9 @@
 // ExperienceInputPage.jsx
 import React, { useState } from 'react';
-import { Step } from '../../../components/step/Step';
+
 import { DropBox } from '../../../components/dropbox/DropBox';
 import Modal from '../../../components/modal/Modal';
+import { Step } from '../../../components/step/Step';
 
 function ExperienceInputPage({ value, name, experience, onChange }) {
   const [modalOpen, setModalOpen] = useState(false);

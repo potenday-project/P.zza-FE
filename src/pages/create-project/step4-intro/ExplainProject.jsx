@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { TopNav } from '../../../components/TopNav/TopNav';
-import { Step } from '../../../components/step/Step';
-import { Input } from '../../../components/input/Input';
-import { Button } from '../../../components/button/Button';
 import './ExplainProject.scss';
+
+import { useState } from 'react';
+
+import { Input } from '../../../components/input/Input';
+import { Step } from '../../../components/step/Step';
 
 export function ExplainProject({
   step,
@@ -16,7 +16,6 @@ export function ExplainProject({
   const [desc_val, setDescVal] = useState(desc);
   const [url_val, setURLVal] = useState(chat_url);
 
-  const [isClick, setIsClick] = useState(false);
   const handleDescChange = (name, desc) => {
     setDescVal(desc);
     onChange(name, desc);

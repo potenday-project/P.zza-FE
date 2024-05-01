@@ -1,18 +1,24 @@
 import './App.css';
+
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from 'react-router-dom';
+
 import Layout from './components/layout/Layout';
-import Start from './pages/Start';
-import SignUp from './pages/sign-up/SignUp';
-import MyProject from './pages/project/MyProject';
-import ProjectDetail from './pages/project/ProjectDetail';
 import { CreateProject } from './pages/create-project/CreateProject';
 import { CreateTopic } from './pages/create-topic/CreateTopic';
-import { TopicKeyword } from './pages/create-topic/TopicKeyword';
 import { Recommendation } from './pages/create-topic/Recommendation';
-import { Main } from './pages/Main';
-import { Project, ProjectAbout } from './pages/project/ProjectAbout';
 import End from './pages/End';
+import { Main } from './pages/Main';
+import MyProject from './pages/project/MyProject';
+import { ProjectAbout } from './pages/project/ProjectAbout';
+import ProjectDetail from './pages/project/ProjectDetail';
+import SignUp from './pages/sign-up/SignUp';
+import Start from './pages/Start';
 
 function App() {
   function setScreenSize() {

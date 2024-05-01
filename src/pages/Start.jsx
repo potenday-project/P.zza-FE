@@ -1,9 +1,11 @@
-import pzza from '../images/pzza.svg';
+import './Start.scss';
+
+import { useNavigate } from 'react-router-dom';
+
+import { userLogin } from '../api/project';
 import character from '../images/character.svg';
 import kakao from '../images/kakao.svg';
-import './Start.scss';
-import { useNavigate } from 'react-router-dom';
-import { userLogin } from '../api/project';
+import pzza from '../images/pzza.svg';
 
 const Start = () => {
   const navigate = useNavigate();

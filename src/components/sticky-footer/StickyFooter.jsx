@@ -1,6 +1,9 @@
-import { useState } from 'react';
-import { Button } from '../button/Button';
 import './StickyFooter.scss';
+
+import { useState } from 'react';
+
+import { Button } from '../button/Button';
+
 export function StickyFooter() {
   const [isClick, setIsClick] = useState(false);
   return (

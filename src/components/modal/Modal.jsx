@@ -1,10 +1,12 @@
+import './Modal.scss';
+
+import { useState } from 'react';
+
+import click from '../../assets/icons/click.svg';
+import desinger from '../../assets/icons/designer.svg';
 import dev from '../../assets/icons/dev.svg';
 import pm from '../../assets/icons/pm.svg';
-import desinger from '../../assets/icons/designer.svg';
-import click from '../../assets/icons/click.svg';
 import unclick from '../../assets/icons/unclick.svg';
-import './Modal.scss';
-import { useState } from 'react';
 
 function Modal({
   modalstate,

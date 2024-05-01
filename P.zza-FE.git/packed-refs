@@ -1,0 +1,17 @@
+# pack-refs with: peeled fully-peeled sorted 
+364b1c58594014815cd806575f2449fbcb5af14d refs/heads/jinyoung/common-ui
+3c603cfece75176336dee91302756e50cae968c5 refs/heads/jinyoung/main
+e054b8cbd67f6569f7c94f93edeec9deea9707e7 refs/heads/jinyoung/my-project
+696c932a9abd872288171049515da2c8638d9663 refs/heads/jinyoung/project-detail
+31021ff8ac4b24199a8dea6700ed94dfed48cbcf refs/heads/jiwon/create-topic
+cd2950a87af7dc9d7a7690f41a003bb960bf63eb refs/heads/jiwon/sign-up
+e132e3b6043222382325c78dd77b37350b1f1769 refs/heads/main
+364b1c58594014815cd806575f2449fbcb5af14d refs/pull/1/head
+cd2950a87af7dc9d7a7690f41a003bb960bf63eb refs/pull/2/head
+4067ba4a39997be3f95594691ef416ffc53bca1c refs/pull/3/head
+bacc89b1ad46f2d27266d90963930c93b12cb626 refs/pull/4/head
+e054b8cbd67f6569f7c94f93edeec9deea9707e7 refs/pull/5/head
+696c932a9abd872288171049515da2c8638d9663 refs/pull/6/head
+3c603cfece75176336dee91302756e50cae968c5 refs/pull/7/head
+93bcc152cad033eddae0fe6aaa60752d4c29f5df refs/pull/7/merge
+31021ff8ac4b24199a8dea6700ed94dfed48cbcf refs/pull/8/head

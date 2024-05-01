@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import './Option.scss';
+
+import { useState } from 'react';
 
 export function Option({ children, onSelect, src, active, className }) {
   const [isClick, setIsClick] = useState(false);

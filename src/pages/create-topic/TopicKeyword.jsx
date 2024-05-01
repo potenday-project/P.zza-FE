@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { TopNav } from '../../components/TopNav/TopNav';
-import { Button } from '../../components/button/Button';
-import { Input } from '../../components/input/Input';
 import './TopicKeyword.scss';
-import { useNavigate } from 'react-router-dom';
+
+import React, { useState } from 'react';
+
+import { Input } from '../../components/input/Input';
 
 const INITIAL = Array.from({ length: 5 }, () => ({ recommendation: '' }));
 
@@ -15,7 +14,6 @@ export function TopicKeyword() {
     newValues[index] = { recommendation: value };
     setValues(newValues);
   };
-  console.log(values);
 
   return (
     <div>

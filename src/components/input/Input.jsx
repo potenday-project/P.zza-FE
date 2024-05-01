@@ -1,6 +1,8 @@
-import { useState } from 'react';
 import './Input.scss';
-import delete_icn from './../../assets/icons/input_delete.svg';
+
+import { useState } from 'react';
+
+import delete_icn from '../../assets/icons/input_delete.svg';
 
 export function Input({
   children,

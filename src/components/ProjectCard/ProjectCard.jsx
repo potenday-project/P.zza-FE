@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import './ProjectCard.scss';
 
 export function ProjectCard({ id, status, name, desc, mem }) {

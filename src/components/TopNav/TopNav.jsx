@@ -1,10 +1,8 @@
-import { useNavigate } from 'react-router-dom';
-import back from '../../assets/icons/back.svg';
 import './TopNav.scss';
 
-export function TopNav({ children, setValueStep, step }) {
-  const navigate = useNavigate();
+import back from '../../assets/icons/back.svg';
 
+export function TopNav({ children, step }) {
   return (
     <div className="topnav-container">
       {step && <img src={back} className="back" onClick={() => {}} />}

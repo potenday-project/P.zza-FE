@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import './SignUp.scss';
+
+import React, {
+  useEffect,
+  useState,
+} from 'react';
+
 import { useNavigate } from 'react-router-dom';
-import { Progress } from '../../components/progress/Progress';
+
+import { UserSignUp } from '../../api/project';
 import { Button } from '../../components/button/Button';
+import { Progress } from '../../components/progress/Progress';
 import BasicInfoPage from './step1/Step1';
 import SkillSelectionPage from './step2/Step2';
 import ExperienceInputPage from './step3/Step3';
 import CompletionPage from './step4/Step4';
-import './SignUp.scss';
-import { UserSignUp } from '../../api/project';
 
 const USER_INITAIL = {
   role: '',
@@ -42,7 +48,7 @@ function SignUp() {
       try {
         setIsError(null);
         setIsLoading(true);
-        const result = await UserSignUp(userValue); // 회원가입 API를 호출하는 함수
+        const result = await UserSignUp(userValue);
         if (result.success) {
           console.log('회원가입 성공:', result);
           navigate('../mainpage');

@@ -1,12 +1,12 @@
-import { useNavigate } from 'react-router-dom';
-import { TopNav } from '../../components/TopNav/TopNav';
-import { useState } from 'react';
-import { Button } from '../../components/button/Button';
-import recommend_charac from '../../images/recommend_charac.svg';
-
 import './Recommendation.scss';
-import { TopicKeyword } from './TopicKeyword';
+
+import { useState } from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 import Header from '../../components/elements/Header';
+import recommend_charac from '../../images/recommend_charac.svg';
+import { TopicKeyword } from './TopicKeyword';
 
 export function Recommendation() {
   const [isClick, setIsClick] = useState(false);

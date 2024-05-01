@@ -1,12 +1,9 @@
-import pzza from '../images/pzza.svg';
-import end from '../../src/images/end_charac.svg';
-
 import './End.scss';
-import { useNavigate } from 'react-router-dom';
+
+import end from '../../src/images/end_charac.svg';
 import { Button } from '../components/button/Button';
 
 const End = () => {
-  const navigate = useNavigate();
   return (
     <div className="end-bg">
       <div className="sub-title">

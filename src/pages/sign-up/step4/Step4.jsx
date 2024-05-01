@@ -1,6 +1,7 @@
+import './Step4.scss';
+
 // CompletionPage.jsx
 import React from 'react';
-import './Step4.scss';
 
 function CompletionPage() {
   return (

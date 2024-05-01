@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from '../button/Button';
+import './Header.scss';
+
+import React, {
+  useEffect,
+  useState,
+} from 'react';
+
+import { useNavigate } from 'react-router-dom';
+
 import Backbtn from '../../assets/icons/ic_back_arrow.svg';
 import DotMenu from '../../assets/icons/ic_dot_menu.svg';
-import './Header.scss';
-import { useNavigate } from 'react-router-dom';
 
 const Header = ({ title, ...rest }) => {
   const navigate = useNavigate();

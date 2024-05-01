@@ -1,15 +1,21 @@
-import logo from '../images/logo.svg';
-import home from '../images/home.svg';
-import bomb from '../images/bomb.svg';
-import plus_icon from '../images/plus_icon.svg';
-import ing from '../assets/icons/ing.svg';
-import done from '../assets/icons/done.svg';
-import stop from '../assets/icons/stop.svg';
 import './Main.scss';
-import { ProjectCard } from '../components/ProjectCard/ProjectCard';
+
+import {
+  useEffect,
+  useState,
+} from 'react';
+
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+
 import { instance } from '../api/instance';
+import done from '../assets/icons/done.svg';
+import ing from '../assets/icons/ing.svg';
+import stop from '../assets/icons/stop.svg';
+import { ProjectCard } from '../components/ProjectCard/ProjectCard';
+import bomb from '../images/bomb.svg';
+import home from '../images/home.svg';
+import logo from '../images/logo.svg';
+import plus_icon from '../images/plus_icon.svg';
 
 export function Main() {
   const navigate = useNavigate();

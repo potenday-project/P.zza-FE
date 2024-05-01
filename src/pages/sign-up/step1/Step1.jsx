@@ -1,9 +1,10 @@
 // BasicInfoPage.jsx
-import React, { useEffect, useState } from 'react';
-import { Step } from '../../../components/step/Step';
-import { Input } from '../../../components/input/Input';
+import React, { useState } from 'react';
+
 import { DropBox } from '../../../components/dropbox/DropBox';
+import { Input } from '../../../components/input/Input';
 import Modal from '../../../components/modal/Modal';
+import { Step } from '../../../components/step/Step';
 
 function BasicInfoPage({
   value,
@@ -30,7 +31,7 @@ function BasicInfoPage({
   };
 
   return (
-    <div>
+    <>
       <Step value={value}> 기본 정보를 입력해주세요</Step>
       <div className="infobox">
         {modalOpen && (
@@ -60,7 +61,7 @@ function BasicInfoPage({
           포트폴리오
         </Input>
       </div>
-    </div>
+    </>
   );
 }
 

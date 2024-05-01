@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react';
+import './CreateProject.scss';
+
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import { ProjectCreation } from '../../api/project';
 import { Button } from '../../components/button/Button';
-import { useNavigate } from 'react-router-dom';
+import Header from '../../components/elements/Header';
 import { CreateTitle } from './step1-title/CreateTitle';
 import { SelectGuide } from './step2-type/SelectGuide';
 import { SelectMem } from './step3-member/SelectMem';
 import { ExplainProject } from './step4-intro/ExplainProject';
 import { CreateDone } from './step5-finish/CreateDone';
-import Header from '../../components/elements/Header';
-import './CreateProject.scss';
-import { ProjectCreation } from '../../api/project';
 
 const INITAIL = {
   project_name: '',
@@ -24,7 +28,6 @@ const INITAIL = {
 };
 
 export function CreateProject() {
-  const navigate = useNavigate();
   const [valueStep, setValueStep] = useState(1);
   const [isClick, setIsClick] = useState(false);
   const [values, setValues] = useState(INITAIL);
@@ -37,8 +40,6 @@ export function CreateProject() {
 
   useEffect(() => {
     localStorage.setItem('project', []);
-    console.log(valueStep);
-
     const handleCreateProject = async () => {
       const storedAccessKey = localStorage.getItem('ACCESS_KEY');
       if (storedAccessKey) {
@@ -48,7 +49,6 @@ export function CreateProject() {
           const result = await ProjectCreation(values, access_key); // 회원가입 API를 호출하는 함수
           if (result) {
             console.log('프로젝트 등록 성공:', result);
-            // navigate('../mainpage');
           }
         } catch (error) {
           console.error('프로젝트 등록 중 오류 발생:', error);

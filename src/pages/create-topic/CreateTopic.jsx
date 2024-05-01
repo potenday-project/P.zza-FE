@@ -1,17 +1,19 @@
-import { TopNav } from '../../components/TopNav/TopNav';
 import './CreateTopic.scss';
-import topic_charac from '../../images/topic_charac.svg';
-import { Button } from '../../components/button/Button';
+
 import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+
+import { useNavigate } from 'react-router-dom';
+
+import { Button } from '../../components/button/Button';
 import Header from '../../components/elements/Header';
+import topic_charac from '../../images/topic_charac.svg';
 
 export function CreateTopic() {
   const [btnClick, setBtnClick] = useState([false, false]);
   const navigate = useNavigate();
   return (
     <>
-      <Header title="프로젝트 주제"></Header>
+      <Header title="프로젝트 주제" />
       <div className="topic-bg">
         <div className="topic-title">
           <h3>프로젝트 주제를 선정하셨나요?</h3>
@@ -40,9 +42,9 @@ export function CreateTopic() {
           <Button
             className={`select-btn ${btnClick[1] ? 'btn-clicked' : ''}`}
             onClick={() => {
-              const newArray = [...btnClick]; // 배열의 복사본 생성
-              newArray[1] = true; // 0번 인덱스 값을 수정
-              setBtnClick(newArray); // 상태 업데이트
+              const newArray = [...btnClick];
+              newArray[1] = true;
+              setBtnClick(newArray);
 
               setTimeout(() => {
                 navigate('./keyword');

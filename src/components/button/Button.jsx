@@ -1,6 +1,4 @@
-import { Navigate, useNavigate } from 'react-router-dom';
 import './Button.scss';
-import { useState } from 'react';
 
 export function Button({ children, onClick, className, more }) {
   return (

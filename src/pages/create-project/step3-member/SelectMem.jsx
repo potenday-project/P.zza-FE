@@ -1,13 +1,16 @@
-import { Step } from '../../../components/step/Step';
-import { Option } from '../../../components/option/Option';
 import './SelectMem.scss';
+
 import { useState } from 'react';
-import dev from '../../../../src/images/position/dev_charac.svg';
+
+import active_design
+  from '../../../../src/images/position/active_design_charac.svg';
 import active_dev from '../../../../src/images/position/active_dev_charac.svg';
-import pm from '../../../../src/images/position/pm_charac.svg';
 import active_pm from '../../../../src/images/position/active_pm_charac.svg';
 import design from '../../../../src/images/position/design_charac.svg';
-import active_design from '../../../../src/images/position/active_design_charac.svg';
+import dev from '../../../../src/images/position/dev_charac.svg';
+import pm from '../../../../src/images/position/pm_charac.svg';
+import { Option } from '../../../components/option/Option';
+import { Step } from '../../../components/step/Step';
 
 export function SelectMem({ step, name, value, onChange }) {
   const [teams, setTeams] = useState(value);
@@ -21,7 +24,6 @@ export function SelectMem({ step, name, value, onChange }) {
     setActive(newActive);
 
     if (newActive[index]) {
-      // 선택된 경우, 팀 배열에 추가
       setTeams([
         ...teams,
         {
@@ -30,7 +32,6 @@ export function SelectMem({ step, name, value, onChange }) {
         },
       ]);
     } else {
-      // 선택 해제된 경우, 팀 배열에서 제거
       setTeams(teams.filter((team) => team.role !== teamRoles[index]));
     }
 

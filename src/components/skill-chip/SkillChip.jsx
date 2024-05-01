@@ -1,5 +1,9 @@
-import { useEffect, useState } from 'react';
 import './SkillChip.scss';
+
+import {
+  useEffect,
+  useState,
+} from 'react';
 
 const skillship = [
   'UX설계',

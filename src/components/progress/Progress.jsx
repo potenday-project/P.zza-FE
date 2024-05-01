@@ -1,6 +1,4 @@
-import { useState } from 'react';
 import './Progress.scss';
-import { useNavigate } from 'react-router-dom';
 
 export function Progress({ value, onClick }) {
   return (
